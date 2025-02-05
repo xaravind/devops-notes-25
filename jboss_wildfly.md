@@ -1,5 +1,3 @@
-Here’s a structured and improved version of the WildFly 35.0.0.Final installation and management notes:
-
 ---
 
 # **WildFly 35.0.0.Final Overview**
@@ -142,5 +140,3 @@ Each host in the domain runs a **Host Controller**, responsible for:
    - Host Controllers may require authentication to connect to the Domain Controller. This is also configured within the `host.xml` file.
 
 ---
-
-This structure should help in organizing WildFly-related tasks and ensure easier management of both standalone and domain modes. Let me know if you need any further details or clarifications!
