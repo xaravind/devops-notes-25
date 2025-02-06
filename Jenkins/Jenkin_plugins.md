@@ -79,7 +79,7 @@ A **Job/Project** in Jenkins consists of tasks like building, testing, and deplo
 
 ---
 
-## **Creating a Simple Job/Project**
+## **overview Job/Project**
 ### **Steps:**
 1. **Dashboard → New Item → Enter Job Name**.
 2. Select an item type (**e.g., Freestyle Project**) → Click **OK**.
