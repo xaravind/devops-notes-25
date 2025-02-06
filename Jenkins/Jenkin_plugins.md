@@ -1,6 +1,3 @@
-
-# **Jenkins Guide**
-
 ## **Jenkins Plugins**
 Jenkins plugins are extensions that enhance Jenkins' functionality.
 
