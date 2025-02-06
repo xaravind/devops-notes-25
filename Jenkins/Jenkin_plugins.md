@@ -4,8 +4,8 @@
 ## **Jenkins Plugins**
 Jenkins plugins are extensions that enhance Jenkins' functionality.
 
-### **Plugin Installation (GUI)**
-There are two ways to install plugins:
+### **Plugin Installation (in GUI)**
+There are two ways to install plugins in GUI:
 
 #### **1. Automatic Installation (.jpi - Jenkins Plugins)**
 - Login to Jenkins GUI.
