@@ -81,7 +81,7 @@
 
 **Installation Steps**:
 1. Follow the [installation guide for Windows](https://www.jenkins.io/doc/book/installing/windows/).
-2. For **Step 3**, select the option: **Run Jenkins as a local system service**. (for our testing but not recommended)
+2. For **Step 3**, select the option: **Run Jenkins as a local system service**.
 
 ---
 
