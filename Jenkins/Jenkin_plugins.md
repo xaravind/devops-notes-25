@@ -17,6 +17,7 @@ There are two ways to install plugins in GUI:
 
 #### **2. Manual Installation (.hpi - Hudson Plugins)**
 - Download plugins from:
+  In Two ways we can download
   - [Official Jenkins Plugins](https://plugins.jenkins.io/)
   - **Jenkins GUI → Available Plugins**
 - Choose the required version and download.
