@@ -43,7 +43,7 @@ C:\ProgramData\Jenkins\.jenkins\
 
 ### **What If a Jenkins User Forgets Their Password?**
 
-#### **1.Resetting the Password (Admin Access Required)**
+#### **1. Resetting the Password (Admin Access Required)**
 
 **Via Jenkins GUI** (for Admins):
    - Navigate to **Manage Jenkins → Security → Users**.
@@ -62,7 +62,7 @@ C:\ProgramData\Jenkins\.jenkins\
    - Enter and confirm the **new password**.
    - Click **Save**.
 
-#### **2.File-Based Password Reset (Not Recommended)**
+#### **2. File-Based Password Reset (Not Recommended)**
 
 - **Location of User Configuration File**:
   - User configurations are stored in:  
@@ -72,7 +72,7 @@ C:\ProgramData\Jenkins\.jenkins\
   - **Modifying** the `config.xml` file directly is **not recommended** as it can corrupt the user configuration. 
   - Instead, you can **delete the user's folder**, but this will result in the loss of their settings and data.
 
-#### **3.External Authentication Systems (LDAP/Active Directory)**
+#### **3. External Authentication Systems (LDAP/Active Directory)**
 
 - If Jenkins is using **external authentication** (e.g., **LDAP** or **Active Directory**), passwords are not stored in Jenkins.
 - Users must reset their password via the external authentication provider (e.g., AD/LDAP system).
