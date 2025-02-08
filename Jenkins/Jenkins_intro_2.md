@@ -108,6 +108,16 @@ C:\ProgramData\Jenkins\.jenkins\
    ```
    JENKINS_URL/job/<job_name>/buildWithParameters?token=<TOKEN_NAME>
    ```
+### 1.3 **Build Trigger Automatically**
+A real-life scenario could be triggering jobs automatically, such as after a deployment is completed.
+
+- **Trigger Jobs Remotely with Scripts**:
+  - You can use the **remote trigger** mechanism with URLs and tokens to trigger jobs programmatically. This is useful for scenarios like:
+    - Testing teams triggering jobs after deployments.
+  - Configure the job with an **Authentication Token**.
+  - Remote teams can then use the token to trigger the job remotely via scripts or webhooks.
+
+---
 
 #### 2. **Build After Other Projects are Built (Upstream and Downstream)**  
    Configure a job to trigger after other projects are built. This is useful for running tests after a build, for example.
@@ -120,6 +130,23 @@ C:\ProgramData\Jenkins\.jenkins\
        - **Trigger even if the build is unstable**
        - **Trigger even if the build fails**
        - **Always trigger, even if the build is aborted**
+---
+
+
+###  **Build After Other Projects**
+You can configure Jenkins to trigger a job after another job completes.
+
+- **Create Multiple Jobs**:
+  - For example, create three jobs: **Job1**, **Job2**, and **Job3**.
+  
+- **Configure Downstream Jobs**:
+  - For **Job1**, configure it to trigger **Job2** under the **Build Triggers** section. (Job2 is the downstream job).
+  - For **Job2**, configure it to trigger **Job3** similarly.
+  
+- **Result**:  
+  - When **Job1** is triggered, it will automatically trigger **Job2**, and once **Job2** finishes, it will trigger **Job3**.
+
+---
 
 #### 3. **Build Periodically**  
    Configure Jenkins to trigger a build at regular intervals using **cron syntax**.
@@ -138,6 +165,24 @@ C:\ProgramData\Jenkins\.jenkins\
    Example:
    - `H/5 * * * *` (Polls every 5 minutes)
    - `H 4 * * 1-5` (Polls at 4 AM, Monday to Friday)
+#### **Build Periodically / Poll SCM Trigger**
+To trigger a Jenkins job periodically or based on changes in source control, follow these steps:
+
+- **Create a New Job**:
+  - Go to Jenkins dashboard and click on **New Item**.
+  - Select **Freestyle project** and name your job.
+
+- **Configure Build Periodically**:
+  - Go to **Configure** of your job.
+  - Under **Build Triggers**, check the box for **Build Periodically**.
+  - Under **Schedule**, configure the schedule using cron syntax. Example:
+
+    ```
+    * * 8 2 6
+    ```
+    Example: `* * 8 2 6` will trigger the job every minute, every hour, on Saturday, 8th February.
+
+
 
 #### 4. **GitHub Hook Trigger for Git SCM Polling**  
    Trigger builds when Jenkins receives a GitHub push hook. Jenkins checks whether the hook came from the GitHub repository defined in the **SCM/Git** section of the job.
@@ -151,8 +196,8 @@ C:\ProgramData\Jenkins\.jenkins\
 
 ---
 
-### **Conclusion**
 
-- **Jenkins Folder Structure**: Detailed breakdown of where Jenkins stores job data, plugins, secrets, and logs.
-- **Password Reset**: Different ways to reset a Jenkins user's password, including through the GUI, file-based reset, or external authentication systems.
-- **Ways to Trigger Jenkins Jobs**: Several methods, including remote triggers, build after other projects, periodic builds, GitHub hooks, and SCM polling.
+
+
+
+
