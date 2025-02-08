@@ -195,9 +195,8 @@ To trigger a Jenkins job periodically or based on changes in source control, fol
    - **Advantages**: Ideal for continuous integration, but can be **resource-intensive** and may cause **delays** depending on the polling interval.
 
 ---
+### **Conclusion**
 
-
-
-
-
-
+- **Jenkins Folder Structure**: Detailed breakdown of where Jenkins stores job data, plugins, secrets, and logs.
+- **Password Reset**: Different ways to reset a Jenkins user's password, including through the GUI, file-based reset, or external authentication systems.
+- **Ways to Trigger Jenkins Jobs**: Several methods, including remote triggers, build after other projects, periodic builds, GitHub hooks, and SCM polling.
