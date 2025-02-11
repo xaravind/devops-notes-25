@@ -21,6 +21,7 @@ Jenkins
 
 ●	Jenkins Folder Structure
 ●	What If a Jenkins User Forgets Their Password?
+●	What If a Jenkins Admin Forgets Their Password?
 ●	Ways to Trigger Jobs
 
 
