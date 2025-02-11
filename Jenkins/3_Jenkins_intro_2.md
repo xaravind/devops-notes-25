@@ -261,8 +261,31 @@ To trigger a Jenkins job periodically or based on changes in source control, fol
    - **Advantages**: Ideal for continuous integration, but can be **resource-intensive** and may cause **delays** depending on the polling interval.
 
 ---
-### **Conclusion**
 
-- **Jenkins Folder Structure**: Detailed breakdown of where Jenkins stores job data, plugins, secrets, and logs.
-- **Password Reset**: Different ways to reset a Jenkins user's password, including through the GUI, file-based reset, or external authentication systems.
-- **Ways to Trigger Jenkins Jobs**: Several methods, including remote triggers, build after other projects, periodic builds, GitHub hooks, and SCM polling.
+#### **How to Change the Default Port Number of Jenkins**
+
+If you need to change the default port number Jenkins uses (8080), follow these steps:
+
+- Go to the Jenkins installation directory:
+  - Path: `C:\Program Files\Jenkins`
+
+- Before making any changes, **take a backup** of the `jenkins.xml` file to ensure you can restore the original settings if needed.
+
+- Open the `jenkins.xml` file in a text editor (e.g., Notepad++ or Visual Studio Code).
+
+- Search for the following line in the file:
+  ```
+  --httpPort=8080
+  ```
+- Replace `8080` with your desired port number, for example:
+  ```
+  --httpPort=9090
+  ```
+
+- After modifying the port number, save the `jenkins.xml` file.
+
+- Restart Jenkins for the changes to take effect.
+- After Jenkins restarts, it will be accessible on the new port you specified (e.g., `http://localhost:9090`).
+
+---
+
