@@ -150,7 +150,32 @@ If you forget your Jenkins admin password, follow these steps to regain access.
 These steps should help restore administrative access to Jenkins while keeping the system secure.
 
 ---
+#### **How to Change the Default Port Number of Jenkins**
 
+If you need to change the default port number Jenkins uses (8080), follow these steps:
+
+- Go to the Jenkins installation directory:
+  - Path: `C:\Program Files\Jenkins`
+
+- Before making any changes, **take a backup** of the `jenkins.xml` file to ensure you can restore the original settings if needed.
+
+- Open the `jenkins.xml` file in a text editor (e.g., Notepad++ or Visual Studio Code).
+
+- Search for the following line in the file:
+  ```
+  --httpPort=8080
+  ```
+- Replace `8080` with your desired port number, for example:
+  ```
+  --httpPort=9090
+  ```
+
+- After modifying the port number, save the `jenkins.xml` file.
+
+- Restart Jenkins for the changes to take effect.
+- After Jenkins restarts, it will be accessible on the new port you specified (e.g., `http://localhost:9090`).
+
+---
 
 
 ### **Ways to Trigger Jenkins Jobs**
@@ -262,30 +287,5 @@ To trigger a Jenkins job periodically or based on changes in source control, fol
 
 ---
 
-#### **How to Change the Default Port Number of Jenkins**
 
-If you need to change the default port number Jenkins uses (8080), follow these steps:
-
-- Go to the Jenkins installation directory:
-  - Path: `C:\Program Files\Jenkins`
-
-- Before making any changes, **take a backup** of the `jenkins.xml` file to ensure you can restore the original settings if needed.
-
-- Open the `jenkins.xml` file in a text editor (e.g., Notepad++ or Visual Studio Code).
-
-- Search for the following line in the file:
-  ```
-  --httpPort=8080
-  ```
-- Replace `8080` with your desired port number, for example:
-  ```
-  --httpPort=9090
-  ```
-
-- After modifying the port number, save the `jenkins.xml` file.
-
-- Restart Jenkins for the changes to take effect.
-- After Jenkins restarts, it will be accessible on the new port you specified (e.g., `http://localhost:9090`).
-
----
 
