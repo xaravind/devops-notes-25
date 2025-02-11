@@ -147,9 +147,11 @@ If you forget your Jenkins admin password, follow these steps to regain access.
 - Restart Jenkins one more time to finalize all changes.
 - Confirm that the system is secure, and the admin user has the proper permissions.
 
+These steps should help restore administrative access to Jenkins while keeping the system secure.
+
 ---
 
-These steps should help restore administrative access to Jenkins while keeping the system secure.
+
 
 ### **Ways to Trigger Jenkins Jobs**
 
