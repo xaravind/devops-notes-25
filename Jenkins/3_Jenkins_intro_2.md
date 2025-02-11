@@ -86,6 +86,70 @@ C:\ProgramData\Jenkins\.jenkins\
 
 
 ---
+### **What To Do If Jenkins Admin Forgets Their Password**
+
+If you forget your Jenkins admin password, follow these steps to regain access.
+
+#### **1. Backup Jenkins Configuration**
+- Navigate to Jenkins Home Directory:
+  - Path: `C:\ProgramData\Jenkins\.jenkins\`
+- Take a backup of the `config.xml` file in case anything goes wrong during the process.
+
+#### **2. Disable Security Temporarily**
+- Open the `config.xml` file in a text editor.
+- Locate the following line:
+  ```xml
+  <useSecurity>true</useSecurity>
+  ```
+- Change the value from `true` to `false`:
+  ```xml
+  <useSecurity>false</useSecurity>
+  ```
+- Save the changes to `config.xml`.
+
+#### **3. Restart Jenkins**
+- Restart Jenkins to apply the changes.
+- Access Jenkins via the web browser. You should be able to log in without authentication.
+
+#### **4. Modify Security Settings**
+- In Jenkins, go to **Manage Jenkins**.
+- Click on **Configure Global Security** under the Security section.
+  
+  **Security Realm:**
+  - Change the **Security Realm** from `None` to **Jenkins’ own user database**.
+  - Save the changes.
+
+  **Authorization:**
+  - Change the **Authorization Strategy** from **Anyone can do anything** to either **Matrix-based security** or **Project-based Matrix Authorization Strategy**.
+  - Uncheck **Anonymous user** to remove administrative privileges from anonymous users.
+  - Click **Save**.
+
+#### **5. Add New Admin User**
+- Click on the **Add user** button.
+- Create a new admin user with the desired credentials.
+  - Assign the **Administrator** role to this user.
+  
+#### **6. Change Admin User Password**
+- In the **Manage Jenkins** section, go to **Manage Users**.
+- Select the newly created admin user and change the password as needed.
+- Save the changes.
+
+#### **7. Restore Security Settings**
+- After restarting Jenkins, verify that the newly created admin user has full administrative privileges.
+- Return to the `config.xml` file.
+- Change the `<useSecurity>` setting back to `true`:
+  ```xml
+  <useSecurity>true</useSecurity>
+  ```
+- Save the file.
+
+#### **8. Final Restart**
+- Restart Jenkins one more time to finalize all changes.
+- Confirm that the system is secure, and the admin user has the proper permissions.
+
+---
+
+These steps should help restore administrative access to Jenkins while keeping the system secure.
 
 ### **Ways to Trigger Jenkins Jobs**
 
