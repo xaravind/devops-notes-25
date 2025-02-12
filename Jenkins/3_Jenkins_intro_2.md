@@ -121,7 +121,6 @@ If you forget your Jenkins admin password, follow these steps to regain access.
 
   **Authorization:**
   - Change the **Authorization Strategy** from **Anyone can do anything** to either **Matrix-based security** or **Project-based Matrix Authorization Strategy**.
-  - Uncheck **Anonymous user** to remove administrative privileges from anonymous users.
   - Click **Save**.
 
 #### **5. Reset password Admin User**
@@ -135,11 +134,12 @@ If you forget your Jenkins admin password, follow these steps to regain access.
 - under **Authorization Strategy**.
 - click **add user**.
 - add the **admin** and give admin privileges.
+- Uncheck **Anonymous user** to remove administrative privileges from anonymous users.
 - Click **Save**.
 
 #### **7. Restore Security Settings**
 - After restarting Jenkins, verify that the newly created admin user has full administrative privileges.
-- Return to the `config.xml` file.
+- Return to the `config.xml` file. (check <useSecurity> it changes to true)
 - Change the `<useSecurity>` setting back to `true`:
   ```xml
   <useSecurity>true</useSecurity>
