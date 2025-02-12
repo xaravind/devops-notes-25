@@ -86,3 +86,78 @@ If you want to run stages in parallel or control the execution flow differently,
 
 ---
 
+## **Using Environment Variables in Jenkins Pipeline**
+
+### **Overview:**
+Jenkins Pipeline exposes environment variables through the global `env` variable. These variables are accessible from anywhere within a Jenkinsfile, making it easy to access important information during the build process.
+
+- **Link to Documentation:** [Jenkins Pipeline - Using Environment Variables](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables)
+
+### **Examples of Default Environment Variables:**
+- **`BUILD_ID`**: A unique identifier for the current build.
+- **`BUILD_NUMBER`**: The number of the current build in the job’s history.
+- **`BUILD_URL`**: The URL of the current build.
+- **`JENKINS_URL`**: The base URL of the Jenkins instance.
+- **`JOB_NAME`**: The name of the Jenkins job.
+- **`WORKSPACE`**: The directory where Jenkins stores the files for the current job.
+
+### **Sample Script for Using Environment Variables:**
+
+#### **Jenkinsfile (Declarative Pipeline)**
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+        }
+    }
+}
+```
+
+- This simple script echoes the `BUILD_ID` and `JENKINS_URL` environment variables during the pipeline execution.
+
+---
+
+## **How to Parameterize a Jenkins Job**
+
+### **What are Parameters?**
+Parameters allow you to prompt users for input when triggering a job. These inputs are passed into the build and can be used to customize the behavior of the job based on the user’s selection.
+
+### **Steps to Use Parameters in Jenkins Jobs:**
+
+1. **Create a New Job**:
+   - Start by creating a new Jenkins job (Freestyle or Pipeline).
+   
+2. **Enable Parameterization**:
+   - Go to the **General** section of the job configuration.
+   - Check the box labeled **"This project is parameterized"**.
+
+3. **Add Parameters**:
+   - Click **"Add Parameter"** to select from a variety of parameter types. Below are the available types:
+     - **Boolean Parameter**: A true/false flag.
+     - **Choice Parameter**: A dropdown with predefined options.
+     - **Credentials Parameter**: Select credentials stored in Jenkins.
+     - **File Parameter**: Allow the user to upload a file.
+     - **Multi-line String Parameter**: For accepting multi-line input.
+     - **Password Parameter**: For secure password input.
+     - **Run Parameter**: For selecting a build to run.
+     - **String Parameter**: For simple text input.
+
+4. **Example: Using a Choice Parameter**:
+   - **Name**: `ENV`
+   - **Choices**: Define multiple environments (e.g., `dev`, `qa`, `prod`).
+   - **Description**: "Choose the environment."
+
+   This will allow users to choose one of the environments during the build.
+
+5. **Triggering the Job with Parameters**:
+   - When the job is triggered, Jenkins will prompt for the parameter(s).
+   - You will see the **Build Parameter** option, where you can select the predefined choices (like `dev`, `qa`, or `prod`) and then start the job.
+
+---
+
+
