@@ -34,4 +34,6 @@ Jenkins
 ●	Rebuild vs. Replay
 ●	Using the Snippet Generator in Jenkins Pipeline
 ●	Pipeline Execution Mode
+●	Using Environment Variables in Jenkins Pipeline
+●	How to Parameterize a Jenkins Job
 
