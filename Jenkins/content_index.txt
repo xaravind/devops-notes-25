@@ -24,6 +24,7 @@ Jenkins
 ●	What If a Jenkins Admin Forgets Their Password?
 ●	Ways to Trigger Jobs
 ● 	How to Change the Default Port Number of Jenkins
+● 	Configuring Tools in Jenkins
 
 
 4_basic_pipeline.md
