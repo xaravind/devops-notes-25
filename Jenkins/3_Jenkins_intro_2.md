@@ -212,9 +212,6 @@ A real-life scenario could be triggering jobs automatically, such as after a dep
   - Remote teams can then use the token to trigger the job remotely via scripts or webhooks.
 
 ---
-Here’s a structured version of your notes using bullet points and headlines:
-
----
 
 ### Triggering Jobs Remotely in Jenkins
 
