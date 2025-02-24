@@ -103,4 +103,23 @@ A **Job/Project** in Jenkins consists of tasks like building, testing, and deplo
 6. Go to **Dashboard**, select the job.
 7. Click **Build Now**.
 8. Check job status and output.
- 🚀
+
+--
+Here’s a structured version of your notes using bullet points and headlines:
+
+---
+
+### Configuring Tools in Jenkins
+
+1. **Access Tool Configuration:**
+   - Navigate to **Manage Jenkins** > **Configure System**.
+   - Under the **Tools** section, configure tools like Apache Maven, Docker, etc.
+
+2. **Configuring Apache Maven:**
+   - To configure Apache Maven (e.g., version 3.6.0):
+     1. Install the **Apache Maven Plugin**.
+     2. Once installed, Maven will appear in the **Tools** section.
+     3. Click **Add Maven** to configure Maven:
+        - **Install Automatically**: Check the box to install Maven automatically.
+        - **Version**: Select the desired version (e.g., 3.6.0).
+---
