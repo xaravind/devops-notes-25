@@ -38,3 +38,9 @@ Jenkins
 ●	Using Environment Variables in Jenkins Pipeline
 ●	How to Parameterize a Jenkins Job
 
+5_Jenkin_ssh_pat.md
+●	How to clone git private repo with SSH keys  and PAT in job/pipeline  
+
+●	Personal access tokens (PAT) configuration and usage
+
+
