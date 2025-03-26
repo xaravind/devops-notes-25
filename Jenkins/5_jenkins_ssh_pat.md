@@ -281,10 +281,10 @@ pipeline {
    This imports the shared library named `'my-shared-library'` into the pipeline. It makes the functions inside `vars/` accessible.
    
 - **`helloWorld()`**:  
-   A function from the `helloWorld.groovy` file inside the `vars/` directory is called in the `Build` stage.
+   A function from the `helloWorld.groovy` file inside the `vars/` directory is called in the given stages.
    
 - **`checkProc()`**:  
-   A function from the `checkProc.groovy` file inside the `vars/` directory is called in the `Deploy` stage.
+   A function from the `checkProc.groovy` file inside the `vars/` directory is called in the given stages.
 
 ---
 
