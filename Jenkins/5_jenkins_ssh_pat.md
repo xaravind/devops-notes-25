@@ -29,7 +29,7 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
 ---
 
-### **2. Store SSH Public Key in Git (GitHub, GitLab, Bitbucket)**
+### **2. Store SSH Public Key in Git **
 
 #### **GitHub**:
 1. **Log in to GitHub** and go to your **profile settings**.
@@ -176,4 +176,121 @@ pipeline {
 - **SSH Keys** provide more secure authentication for cloning repositories.
 - **PAT** is another method, often simpler for setups where SSH is difficult to configure.
 - Always store sensitive credentials (like SSH keys or PATs) in Jenkins' **Credentials Manager** and reference them securely in your pipeline code.
+
+Certainly! Below is an improved structure of your notes, formatted with headlines, bullet points, and slight improvements for clarity without removing any existing content:
+
+---
+
+# Jenkins Shared Libraries
+
+### **What are Shared Libraries?**
+- A **library** is a collection of reusable code, such as functions and classes, that can be utilized across multiple Jenkins pipelines.
+- The goal is to **avoid repetition** and improve maintainability by centralizing common functionality into libraries.
+
+### **Types of Jenkins Shared Libraries**
+Jenkins supports two types of shared libraries:
+
+1. **Global Trusted Pipeline Libraries**  
+   - These libraries are available to any pipeline job running on this system.
+   - **Trusted**: They run without sandbox restrictions, allowing the use of advanced features like `@Grab`.
+
+2. **Global Untrusted Pipeline Libraries**  
+   - These libraries are also available to any pipeline job running on this system.
+   - **Untrusted**: They run with sandbox restrictions, meaning they cannot use certain features like `@Grab`.
+
+---
+
+### **Configuring Shared Libraries in Jenkins**
+
+To set up shared libraries, follow these steps:
+
+1. **Go to Jenkins Dashboard**  
+   - Navigate to **Manage Jenkins** → **Configure System**.
+
+2. **Add Shared Library**  
+   - Under the **Global Pipeline Libraries** section, add a new library.
+   - Provide the **Git repository URL** of the shared library. For example:  
+     `https://github.com/xaravind/shared_lib.git`
+   - **Credentials**: If it's a private repository, make sure to provide the necessary credentials.
+
+---
+
+### **Shared Library Folder Structure Example**
+
+Here’s an example of the directory structure for a shared library that includes reusable variables (`vars`) with `.groovy` files:
+
+```
+my-shared-library/
+├── vars/
+│   ├── checkProc.groovy
+│   └── helloWorld.groovy
+```
+
+- **`vars/`**: This folder contains simple Groovy scripts that define reusable functions or variables.
+- **`checkProc.groovy`** and **`helloWorld.groovy`** are two examples of reusable scripts.
+
+---
+
+### **Example Code Using Shared Libraries**
+
+Here is a sample Jenkinsfile that demonstrates how to use a shared library:
+
+```groovy
+@Library('my-shared-library') _  // Load the shared library
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    // Call the helloWorld function from shared library
+                    helloWorld()
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    // Call the checkProc function from shared library
+                    checkProc()
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+    }
+}
+```
+
+### **Explanation of the Code:**
+
+- **@Library('my-shared-library') _**:  
+   This imports the shared library named `'my-shared-library'` into the pipeline. It makes the functions inside `vars/` accessible.
+   
+- **`helloWorld()`**:  
+   A function from the `helloWorld.groovy` file inside the `vars/` directory is called in the `Build` stage.
+   
+- **`checkProc()`**:  
+   A function from the `checkProc.groovy` file inside the `vars/` directory is called in the `Deploy` stage.
+
+---
+
+### **Important Notes**
+- When configuring shared libraries, **ensure the repository is accessible** from Jenkins, and make sure credentials are provided if it's a private repo.
+- **Global Trusted Pipeline Libraries** run without sandbox restrictions, while **Global Untrusted Pipeline Libraries** are sandboxed.
+  
+
 
