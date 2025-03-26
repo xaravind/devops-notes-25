@@ -220,7 +220,7 @@ To set up shared libraries, follow these steps:
 Here’s an example of the directory structure for a shared library that includes reusable variables (`vars`) with `.groovy` files:
 
 ```
-my-shared-library/
+shared-lib/
 ├── vars/
 │   ├── checkProc.groovy
 │   └── helloWorld.groovy
