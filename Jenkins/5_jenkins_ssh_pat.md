@@ -186,6 +186,10 @@ Certainly! Below is an improved structure of your notes, formatted with headline
 ### **What are Shared Libraries?**
 - A **library** is a collection of reusable code, such as functions and classes, that can be utilized across multiple Jenkins pipelines.
 - The goal is to **avoid repetition** and improve maintainability by centralizing common functionality into libraries.
+- Shared libraries in jenkins is a collection of grrovy scripts shared between different jenkins jobs.
+- Shared libraries are stored in git repositories.
+- Creating a Shared libraries simplifies the process of pushing source code updates for a project.
+- Updating the library source code also updates the code of every project, that uses library.
 
 ### **Types of Jenkins Shared Libraries**
 Jenkins supports two types of shared libraries:
