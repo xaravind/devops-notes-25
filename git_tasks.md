@@ -99,6 +99,8 @@
     ```
 
 successfully used `git cherry-pick` to apply the commit `1eecaca` from the `dev` branch to your current `master` branch.
+
 The file `master3` was added to the `master` branch which is mistakenly added in `dev` branch, reflecting the changes from the `dev` branch.
-Added one more commit in `master` branch `b884bc6` with the same commit msg from `dev` branch, `master3_dev`.
+
+It Added one more commit in `master` branch `b884bc6` with the same commit msg from `dev` branch, `master3_dev`.
 
