@@ -1,7 +1,7 @@
 
-# Challenge 2: Use `git cherry-pick` to apply a specific commit from another branch to your current branch
+ **Challenge 2: Use `git cherry-pick` to apply a specific commit from another branch to your current branch**
 
-## Steps
+**Steps** 
 
 1. **Create a directory**
 ```bash
