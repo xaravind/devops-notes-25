@@ -4,7 +4,7 @@
 ## Steps
 
 1. **Create a directory**
-   ```bash
+
    mkdir challange2
    ```
 
