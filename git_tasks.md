@@ -1,13 +1,13 @@
-```markdown
+
 # Challenge 2: Use `git cherry-pick` to apply a specific commit from another branch to your current branch
 
 ## Steps
 
 1. **Create a directory**
-
+```bash
    mkdir challange2
    ```
-
+   
 2. **Go to the directory**
    ```bash
    cd challange2
