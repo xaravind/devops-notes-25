@@ -104,7 +104,7 @@ The file `master3` was added to the `master` branch which is mistakenly added in
 
 It Added one more commit in `master` branch `b884bc6` with the same commit msg from `dev` branch, `master3_dev`.
 
-
+---
 **Challenge 3: Create a merge conflict scenario and manually resolve it using git merge and git rebase.**
 
 1. **Create a directory**
@@ -173,24 +173,24 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
    ```bash
    git log --oneline
    ```
-========================
-f1c5d3b (HEAD -> dev) added three lines from dev
-f2c0b8e dev2
-360a2b3 dev1
-eb2a0aa (master) master2
-97ce171 master1
-------------
-$ cat master1
-added from dev
-merge
-conflict
-$ ll
-total 1
--rw-r--r-- 1 aravi 197609  0 Apr  5 09:53 dev1
--rw-r--r-- 1 aravi 197609  0 Apr  5 09:53 dev2
--rw-r--r-- 1 aravi 197609 30 Apr  5 10:06 master1
--rw-r--r-- 1 aravi 197609  0 Apr  5 09:47 master2
-=======================
+   ```bash
+   f1c5d3b (HEAD -> dev) added three lines from dev
+   f2c0b8e dev2
+   360a2b3 dev1
+   eb2a0aa (master) master2
+   97ce171 master1
+   ------------
+   $ cat master1
+   added from dev
+   merge
+   conflict
+   $ ll
+   total 1
+   -rw-r--r-- 1 aravi 197609  0 Apr  5 09:53 dev1
+   -rw-r--r-- 1 aravi 197609  0 Apr  5 09:53 dev2
+   -rw-r--r-- 1 aravi 197609 30 Apr  5 10:06 master1
+   -rw-r--r-- 1 aravi 197609  0 Apr  5 09:47 master2
+   ```
 
 13. **switch to `master` branch**
    ```bash
@@ -202,17 +202,17 @@ total 1
     echo "added from master" >> master1
     git add master1 ; git commit -m "added line from master"
     ```
-========================
+    ```bash
     $ git log --oneline
     cf40f64 (HEAD -> master) added three line from master
     eb2a0aa master2
     97ce171 master1 
-------------------------------------
+    ---
     $ ll
     total 1
     -rw-r--r-- 1 aravi 197609 18 Apr  5 10:17 master1
     -rw-r--r-- 1 aravi 197609  0 Apr  5 09:47 master2
-=======================
+   ```
 
 15. **now merge `dev` branch, now we will get conflict a conflict since there are two different contents on the same line.**
     ```bash
