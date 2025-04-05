@@ -104,8 +104,8 @@ The file `master3` was added to the `master` branch which is mistakenly added in
 
 It Added one more commit in `master` branch `b884bc6` with the same commit msg from `dev` branch, `master3_dev`.
 
-===================================================================================================================
-Challenge 3: Create a merge conflict scenario and manually resolve it using git merge and git rebase.
+
+**Challenge 3: Create a merge conflict scenario and manually resolve it using git merge and git rebase.**
 
 1. **Create a directory**
    ```bash
