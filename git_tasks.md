@@ -257,7 +257,7 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
     ```
 18. **Add and commit file**
    ```bash
-   git add master1 ; git commit -m "conflict resolved"
+   git add master1 ; git commit -m "merge conflict resolved"
    ```
 
 19. **check `git` log, successfully merged branch with merge**
