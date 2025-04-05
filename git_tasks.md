@@ -246,6 +246,12 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
    ```bash
    git checkout  "master"
    ```
+   ```bash
+   $ git log --oneline
+   711f3c3 (HEAD -> master) added line from master
+   6bf2bcf master2
+   febe8cc master1
+  ```
     
 19. **now merge `dev` branch, now we will get conflict a conflict since there are two different contents on the same line.**
 
