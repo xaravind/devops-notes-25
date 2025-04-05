@@ -107,15 +107,6 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
 ---
 **Challenge 3: Create a merge conflict scenario and manually resolve it using git merge and git rebase.**
 
-Sure, here's the modified version without the word "you":
-
----
-
-### **Git Merge vs Git Rebase: Practice Notes**
-
----
-
-### **Step-by-Step Breakdown**
 
 #### **1. Initialize Git Repository**
 
