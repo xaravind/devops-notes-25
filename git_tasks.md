@@ -214,7 +214,40 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
       -rw-r--r-- 1 aravi 197609 18 Apr  5 10:17 master1
       -rw-r--r-- 1 aravi 197609  0 Apr  5 09:47 master2
     ```
-15. **now merge `dev` branch, now we will get conflict a conflict since there are two different contents on the same line.**
+15. **switch to `dev`**
+   ```bash
+   git checkout  "dev"
+   ```
+
+16. **Create two files**
+   ```bash
+   touch dev3 dev4
+   ```
+
+17. **Add and commit the two files**
+   ```bash
+   git add dev3
+   git commit -m "dev3"
+   git add dev4
+   git commit -m "dev4"
+   ```
+   ```bash
+   aravi@Aravind MINGW64 ~/devops/challange3 (dev)
+   $ git log --oneline
+   dd6a255 (HEAD -> dev) dev4
+   b150f59 dev3
+   b5c2ae5 added three lines from dev
+   e3afe62 dev2
+   f75b94b dev1
+   6bf2bcf master2
+   febe8cc master1
+   ```   
+18. **switch to `master`**
+   ```bash
+   git checkout  "master"
+   ```
+    
+19. **now merge `dev` branch, now we will get conflict a conflict since there are two different contents on the same line.**
 
     ```bash
     git merge dev
@@ -227,7 +260,7 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
     Automatic merge failed; fix conflicts and then commit the result.   
     ```
 
-16. **Open and check `master1` file**
+20. **Open and check `master1` file**
     ```bash
     cat master1
     ```
@@ -242,7 +275,7 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
     >>>>>>> dev
     ```
 
-17. **manually resolve the conflicts and remove all unnecessary lines**
+21. **manually resolve the conflicts and remove all unnecessary lines**
     ```bash
     vi master1
     ```
@@ -255,23 +288,25 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
     merge
     conflict  
     ```
-18. **Add and commit file**
+22. **Add and commit file**
    ```bash
    git add master1 ; git commit -m "merge conflict resolved"
    ```
 
-19. **check `git` log, successfully merged branch with merge**
+23. **check `git` log, successfully merged branch with merge**
 
    ```bash
    aravi@Aravind MINGW64 ~/devops/challange3 (master)
-    $ git log --oneline
-    68004a1 (HEAD -> master) conflict resolved
-    cf40f64 added line from master # merge commit id
-    f1c5d3b (dev) added three lines from dev
-    f2c0b8e dev2
-    360a2b3 dev1
-    eb2a0aa master2
-    97ce171 master1
+   $ git log --oneline
+   a2597f7 (HEAD -> master) merge conflict resolved
+   4a6df03 added line from master
+   b5c2ae5 (dev) added three lines from dev
+   e3afe62 dev2
+   f75b94b dev1
+   6bf2bcf master2
+   febe8cc master1
    ```
 
- **Observe that the commit history is not linear; commits from both branches, dev and master, have overlapped**
+ **Observe that the commit history is linear; commits from both branches, dev and master, have overlapped**
+
+ 
