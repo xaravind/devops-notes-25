@@ -205,16 +205,14 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
     git add master1 ; git commit -m "added line from master"
     ```
     ```bash
-   $ git log --oneline
-   cf40f64 (HEAD -> master) added three line from master
-   eb2a0aa master2
-   97ce171 master1 
-   
-   ---
-   $ ll
-   total 1
-   -rw-r--r-- 1 aravi 197609 18 Apr  5 10:17 master1
-   -rw-r--r-- 1 aravi 197609  0 Apr  5 09:47 master2
+      $ git log --oneline
+      cf40f64 (HEAD -> master) added three line from master
+      eb2a0aa master2
+      97ce171 master1 
+      $ ll
+      total 1
+      -rw-r--r-- 1 aravi 197609 18 Apr  5 10:17 master1
+      -rw-r--r-- 1 aravi 197609  0 Apr  5 09:47 master2
     ```
 15. **now merge `dev` branch, now we will get conflict a conflict since there are two different contents on the same line.**
 
