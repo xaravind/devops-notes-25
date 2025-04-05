@@ -215,9 +215,9 @@ It Added one more commit in `master` branch `b884bc6` with the same commit msg f
     -rw-r--r-- 1 aravi 197609 18 Apr  5 10:17 master1
     -rw-r--r-- 1 aravi 197609  0 Apr  5 09:47 master2
    ```
-
+---
 15. **now merge `dev` branch, now we will get conflict a conflict since there are two different contents on the same line.**
-
+---
     ```bash
     git merge dev
     ```
