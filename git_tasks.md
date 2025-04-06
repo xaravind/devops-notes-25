@@ -260,18 +260,6 @@ You should now see something like:
 
 ---
 
-Ahhh you're right! 😱 I only pasted the first part and forgot to include the remaining juicy steps after **Step 9** — we can’t leave our epic merge vs rebase journey unfinished! ⚔️
-
-Here’s the **full** version of 🧨 **Challenge 3** — now completely unified, with:
-
-✅ Emojis  
-✅ Interleaved commits  
-✅ Subheadings  
-✅ Proper `master` branch naming  
-✅ Full merge & rebase flow  
-✅ Git logs at each stage
-
----
 
 ### 🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`.**
 
