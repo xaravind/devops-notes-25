@@ -1138,6 +1138,16 @@ git commit -m "a1: Clean commit - no bad words"
 
 ✅ Commit goes through because `file.txt` has clean content.
 
+```
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ git add file.txt
+git commit -m "a1: Clean commit - no bad words"
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) 8304a78] a1: Clean commit - no bad words
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+```
+
 ---
 
 #### 5. **Edit File with a Bad Word**
@@ -1156,6 +1166,9 @@ git commit -m "a2: Try to commit bad content"
 ```
 
 ```
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ git commit -am "a2: Try to commit bad content"
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
 ❌ Commit rejected: 'badword' found in file.txt
 ```
 
@@ -1168,11 +1181,31 @@ git commit -m "a2: Try to commit bad content"
 #### 7. **Clean the File and Commit**
 
 ```bash
-sed -i '/badword/d' file.txt  # or edit manually
+sed -i 's/badword/goodword/gi' file.txt
 git add file.txt
 git commit -m "a2: Cleaned file and committed"
 ```
 
+```
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ sed -i 's/badword/goodword/gi' file.txt
+
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ cat file.txt
+Initial content
+This line has a goodword
+
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ git commit -am "a2: removed badword"
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master c6126ca] a2: removed badword
+ 1 file changed, 1 insertion(+)
+
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ git log --oneline
+c6126ca (HEAD -> master) a2: removed badword
+8304a78 a1: Clean commit - no bad words
+```
 ---
 
 #### 8. **(Optional) Set Up a Post-Commit Hook**
@@ -1181,14 +1214,17 @@ git commit -m "a2: Cleaned file and committed"
 cat > .git/hooks/post-commit << 'EOF'
 #!/bin/bash
 echo "✅ Commit was successful!" >> commit.log
+echo "✅ Commit was successful! 🙌"
 EOF
 chmod +x .git/hooks/post-commit
 ```
 
 🧠 **What happened:**
 - 🪄 After each successful commit, a message is logged to `commit.log`
+- 🪄 it prints message,✅ Commit was successful! 🙌
 
 ---
+
 
 #### 9. **Check the Commit Log**
 
@@ -1197,8 +1233,31 @@ git log --oneline
 ```
 
 ```
-a2: Cleaned file and committed
-a1: Clean commit - no bad words
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ cat .git/hooks/post-commit
+#!/bin/bash
+echo "✅ Commit was successful!" >> commit.log
+echo "✅ Commit was successful! 🙌"
+
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ ll .git/hooks/post-commit
+-rwxr-xr-x 1 aravi 197609 60 Apr  6 17:50 .git/hooks/post-commit*
+
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$  echo "checking post commit" >> file.txt
+
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ git commit -am "a3: post-commit-hook"
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+✅ Commit was successful! 🙌
+[master 5659906] a3: post-commit-hook-Test-1
+ 1 file changed, 1 insertion(+)
+
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ git log --oneline
+143300d (HEAD -> master) a3: post-commit-hook
+c6126ca a2: removed badword
+8304a78 a1: Clean commit - no bad words
 ```
 
 ---
