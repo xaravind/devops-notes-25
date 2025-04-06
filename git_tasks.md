@@ -684,14 +684,12 @@ On branch master
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         modified:   file.txt
-
-
-```
 aravi@Aravind MINGW64 ~/devops/challenge4 (master)
 $  git log --oneline
 dcf7632 (HEAD -> master) c1: Add line C
 276d87c b1: Add line B
 e719ed0 a1: Add line A
+```
 
 ---
 
@@ -706,7 +704,7 @@ git reset --mixed HEAD~1
 - ✅ Commit `d1` removed
 - 🔄 Changes moved to **unstaged**
 - 📁 Working directory still contains the changes
-💬 Easy version:  
+- 💬 Easy version:  
 The commit is removed, and your changes are still there — but **not staged anymore**.  
 Now you need to **add and commit again** to stage them.
 
