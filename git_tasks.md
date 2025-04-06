@@ -835,8 +835,6 @@ dcf7632 c1: Add line C
 e719ed0 a1: Add line A
 
 ```
-agian moved 
-
 🧠 **Pro Tip:**  
 You can use `HEAD@{n}` directly too:
 ```bash
