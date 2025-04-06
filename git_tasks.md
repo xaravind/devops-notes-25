@@ -971,7 +971,9 @@ git log --oneline
 ```
 
 ```
-a1: Initial commit with main file
+aravi@Aravind MINGW64 ~/devops/challenge5 (master)
+$ git log --oneline
+2ada4da (HEAD -> master) a1: Initial commit with main file
 ```
 
 ---
@@ -986,7 +988,35 @@ git commit --amend --no-edit
 🧠 **What happened:**
 - 🧩 `forgotten.txt` was added to the **previous commit**  
 - 📝 Commit message **remains unchanged**  
-- 🔂 No new commit created  
+- 🔂 No new commit created
+
+```bash
+aravi@Aravind MINGW64 ~/devops/challenge5 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   forgotten.txt
+
+
+aravi@Aravind MINGW64 ~/devops/challenge5 (master)
+$ git commit --amend --no-edit
+[master b7b806c] a1: Initial commit with main file
+ Date: Sun Apr 6 17:20:15 2025 +0530
+ 2 files changed, 2 insertions(+)
+ create mode 100644 forgotten.txt
+ create mode 100644 main.txt
+
+aravi@Aravind MINGW64 ~/devops/challenge5 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+aravi@Aravind MINGW64 ~/devops/challenge5 (master)
+$ git log --oneline
+b7b806c (HEAD -> master) a1: Initial commit with main file
+
+```
 
 ---
 
@@ -1010,7 +1040,18 @@ git log --oneline
 ```
 
 ```
-a1: Add main file and forgotten file
+aravi@Aravind MINGW64 ~/devops/challenge5 (master)
+$ git commit --amend -m "a1: Add main file and forgotten file"
+[master 5e07208] a1: Add main file and forgotten file
+ Date: Sun Apr 6 17:20:15 2025 +0530
+ 2 files changed, 2 insertions(+)
+ create mode 100644 forgotten.txt
+ create mode 100644 main.txt
+
+aravi@Aravind MINGW64 ~/devops/challenge5 (master)
+$ git log --oneline
+5e07208 (HEAD -> master) a1: Add main file and forgotten file
+
 ```
 
 ---
