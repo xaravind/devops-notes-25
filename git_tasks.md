@@ -1435,3 +1435,126 @@ $ git log --oneline --graph
 | Rebase        | `git rebase master` | ❌ No                  | Linear history         |
 
 ---
+
+#### 🧱 *Challenge 8: Squash Multiple Commits into One Using `git rebase -i`*
+
+---
+
+#### 🎯 Objective:
+Learn how to:
+- 🏗️ Create a new feature branch  
+- 📚 Make multiple commits  
+- 🧼 Squash them into a **single clean commit**  
+- ✍️ Edit the final commit message interactively  
+
+---
+
+#### 1. **Initialize a Repo**
+
+```bash
+mkdir challenge8 && cd challenge8
+git init
+```
+
+---
+
+#### 2. **Create Initial Commit on `master`**
+
+```bash
+echo "Base line" > file.txt
+git add file.txt
+git commit -m "a1: Base commit"
+```
+
+---
+
+#### 3. **Create and Switch to a Feature Branch**
+
+```bash
+git checkout -b feature
+```
+
+---
+
+#### 4. **Create Multiple Commits on the Feature Branch**
+
+```bash
+echo "Add Part 1" >> file.txt
+git commit -am "f1: Add Part 1"
+
+echo "Add Part 2" >> file.txt
+git commit -am "f2: Add Part 2"
+
+echo "Add Part 3" >> file.txt
+git commit -am "f3: Add Part 3"
+```
+
+---
+
+#### 5. **Check the Commit History**
+
+```bash
+git log --oneline
+```
+
+```
+f3: Add Part 3
+f2: Add Part 2
+f1: Add Part 1
+a1: Base commit
+```
+
+---
+
+#### 6. **Start Interactive Rebase to Squash Commits**
+
+```bash
+git rebase -i a1
+```
+
+⬇️ In the interactive editor, change it to:
+
+```
+pick f1: Add Part 1
+squash f2: Add Part 2
+squash f3: Add Part 3
+```
+
+🧠 You'll be prompted to **edit the commit message**. Combine or rewrite it, for example:
+
+```
+f123: Add full feature in one commit
+```
+
+Then save and exit.
+
+---
+
+#### 7. **Check Final Commit History**
+
+```bash
+git log --oneline
+```
+
+```
+f123: Add full feature in one commit
+a1: Base commit
+```
+
+🧠 **What happened:**
+- 🎯 All feature commits were **squashed into one**
+- 🧹 History is clean and readable  
+- ✅ Great before merging into `master`
+
+---
+
+#### 8. **Summary Table**
+
+| Action             | Command                    | Result                     |
+|--------------------|----------------------------|----------------------------|
+| Interactive Rebase | `git rebase -i <base>`     | Squashes + edit history    |
+| Squash             | `squash` in rebase editor  | Combines commits           |
+| Fixup              | `fixup` in rebase editor   | Combines + skips message   |
+
+---
+
