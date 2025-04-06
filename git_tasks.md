@@ -1286,7 +1286,7 @@ Learn how to:
 #### 1. **Initialize the Repo**
 
 ```bash
-mkdir challenge7 && cd challenge8
+mkdir challenge7 && cd challenge7
 git init
 ```
 
