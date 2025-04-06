@@ -356,17 +356,23 @@ git log --oneline --graph --all --date-order
 ```
 
 ```
-aravi@Aravind MINGW64 ~/devops/challange3 (feature)
-$ git log --oneline --graph --all --date-order
-* a8165e0 (HEAD -> feature) f3 Feature: Add Line D
-| * 4178923 (master) m4 Master: Add Line Z
-* | e541989 f2 Feature: Add Line C
-| * b5cb3aa m3 Master: Add Line Y
-* | 894db87 b1 Feature: Add Line B
-|/
+As of now git logs from both branches
+aravi@Aravind MINGW64 ~/devops/challange3 (master)
+$ git log --oneline --graph  --date-order
+* 4178923 (HEAD -> master) m4 Master: Add Line Z
+* b5cb3aa m3 Master: Add Line Y
 * f91879a m2 Master: Add Line X
 * ac130f9 m1 Master: Add Line T
 * bfb2dc8 a1 Base: Add Line A
+
+aravi@Aravind MINGW64 ~/devops/challange3 (feature)
+$ git log --oneline
+a8165e0 (HEAD -> feature) f3 Feature: Add Line D
+e541989 f2 Feature: Add Line C
+894db87 b1 Feature: Add Line B
+f91879a m2 Master: Add Line X
+ac130f9 m1 Master: Add Line T
+bfb2dc8 a1 Base: Add Line A
 
 ```
 
@@ -378,6 +384,15 @@ $ git log --oneline --graph --all --date-order
 ```bash
 git checkout master
 git merge feature
+```
+```
+you'll see like below
+
+Switched to branch 'master'
+Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
 ```
 
 💥 Conflict in `file.txt`
@@ -460,15 +475,31 @@ Much easier to follow! 🙌
 
 ## 🔁 Part 3: Rebase Conflict Flow
 
-#### 🔹 Step 1️⃣3️⃣: Reset & Checkout `feature`
+#### 🔹 Step 1️⃣3️⃣: Reset & Checkout `master`
 ```bash
-git reset --hard m4
-git checkout feature
+git reset --hard HEAD~1
+git checkout master
 ```
 
 #### 🔹 Step 1️⃣4️⃣: Rebase Onto `master`
 ```bash
-git rebase master
+git rebase feature
+```
+
+```
+you'll see like below
+
+Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+error: could not apply b5cb3aa... m3 Master: Add Line Y
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config advice.mergeConflict false"
+Could not apply b5cb3aa... m3 Master: Add Line Y
+
+aravi@Aravind MINGW64 ~/devops/challange3 (master|REBASE 1/2)
 ```
 
 💥 Conflict in `file.txt`. Fix to:
@@ -484,7 +515,7 @@ Feature Line D
 ```
 Then:
 ```bash
-git add file.txt
+git commit -am "conflict resolved"
 git rebase --continue
 ```
 
@@ -498,26 +529,78 @@ git merge feature --ff-only
 ```bash
 git log --oneline --graph --all
 ```
+```
+aravi@Aravind MINGW64 ~/devops/challange3 (master)
+$  git log --oneline --graph --all --decorate --date-order
+* d19ff4c (HEAD -> master) conflict resolved
+* ffa1043 m3 Master: Add Line Y
+* a8165e0 (feature) f3 Feature: Add Line D
+* e541989 f2 Feature: Add Line C
+* 894db87 b1 Feature: Add Line B
+* f91879a m2 Master: Add Line X
+* ac130f9 m1 Master: Add Line T
+* bfb2dc8 a1 Base: Add Line A
 
 ```
-* f3 (HEAD -> master, feature) Feature: Add Line D
-* f2 Feature: Add Line C
-* b1 Feature: Add Line B
-* m4 Master: Add Line Z
-* m3 Master: Add Line Y
-* m2 Master: Add Line X
-* m1 Master: Add Line T
-* a1 Base: Add Line A
+---
+
+## 🔀 **Merge Log (Branchy History)**
+
 ```
+*   60ea1d4 (HEAD -> master) m5 Master: Merge feature into master
+|\
+| * a8165e0 (feature)       f3 Feature: Add Line D
+* | 4178923                m4 Master: Add Line Z
+| * e541989                f2 Feature: Add Line C
+* | b5cb3aa                m3 Master: Add Line Y
+| * 894db87                b1 Feature: Add Line B
+|/
+* f91879a                m2 Master: Add Line X
+* ac130f9                m1 Master: Add Line T
+* bfb2dc8                a1 Base: Add Line A
+```
+
+### 🧠 What It Shows:
+- Git created a **merge commit (`m5`)** that combines both branches.
+- The graph visually shows **parallel development**:
+  - Left side → commits from `feature` branch
+  - Right side → commits from `master`
+- It's **real branch history**, not rewritten.
+- Easy to **trace branch lines**, but **history is more complex**.
 
 ---
 
-## 🧠 Merge vs Rebase Summary
+## 🔁 **Rebase Log (Linear History)**
 
-| ⚙️ Method | 🧩 History Shape         | ✅ Pros                     | ⚠️ Cons                    |
-|----------|--------------------------|-----------------------------|----------------------------|
-| `merge`  | Merge commit & branches  | Shows real parallel history | Harder to read             |
-| `rebase` | Linear commit chain      | Easier to follow            | Rewrites history           |
+```
+* d19ff4c (HEAD -> master) conflict resolved
+* ffa1043                m3 Master: Add Line Y
+* a8165e0 (feature)       f3 Feature: Add Line D
+* e541989                f2 Feature: Add Line C
+* 894db87                b1 Feature: Add Line B
+* f91879a                m2 Master: Add Line X
+* ac130f9                m1 Master: Add Line T
+* bfb2dc8                a1 Base: Add Line A
+```
+
+### 🧠 What It Shows:
+- Feature commits (`b1`, `f2`, `f3`) were **replayed on top** of `master` via rebase.
+- Then a **conflict was resolved** and committed (`d19ff4c`).
+- The result is a **clean, linear history** — like the feature branch was developed on top of the latest `master` from the start.
+- Looks like **everything happened in one straight line** — easier to read for small teams or clean project history.
+
+---
+
+## 🧩 Visual Difference: Summary Table
+
+| Feature             | Merge                           | Rebase                          |
+|---------------------|----------------------------------|---------------------------------|
+| History Style       | Branching/Non-linear             | Linear                          |
+| Merge Commit        | ✅ Yes (`m5`)                     | ❌ No (history rewritten)        |
+| Conflict Handling   | During merge commit              | During rebase replay            |
+| Commit Order        | Parallel (interleaved visually)  | Sequential (one timeline)       |
+| Visual Graph        | Shows two lines merged           | Shows single straight path      |
+| Use Case            | Preserve true history            | Clean up history before sharing |
 
 ---
 
