@@ -259,10 +259,6 @@ You should now see something like:
 - ✔️ It Added one more commit in `master` branch `b884bc6` with the same commit msg from `dev` branch, `master3_dev`.
 
 ---
-Here it is — the **cleaned-up**, emoji-boosted version of 🧨 **Challenge 3** with everything you asked for:  
-No fluff lines, just pure commands, structure, commit logs, and the comparison. Enjoy the clarity! 😎
-
----
 
 ### 🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`.**
 
