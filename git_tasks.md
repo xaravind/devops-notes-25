@@ -1498,10 +1498,13 @@ git log --oneline
 ```
 
 ```
-f3: Add Part 3
-f2: Add Part 2
-f1: Add Part 1
-a1: Base commit
+aravi@Aravind MINGW64 ~/devops/challenge8 (feature)
+$ git log --oneline
+2dab0b6 (HEAD -> feature) f3: Add Part 3
+1c269d7 f2: Add Part 2
+68628b4 f1: Add Part 1
+950222a (master) a1: Base commit
+
 ```
 
 ---
@@ -1515,15 +1518,33 @@ git rebase -i a1
 ⬇️ In the interactive editor, change it to:
 
 ```
-pick f1: Add Part 1
-squash f2: Add Part 2
-squash f3: Add Part 3
+pick 68628b4 f1: Add Part 1
+squash 1c269d7 f2: Add Part 2
+squash 2dab0b6 f3: Add Part 3
+
+# Rebase 950222a..2dab0b6 onto 950222a (3 commands)
+
 ```
 
 🧠 You'll be prompted to **edit the commit message**. Combine or rewrite it, for example:
 
 ```
-f123: Add full feature in one commit
+# This is a combination of 3 commits.
+# This is the 1st commit message:
+
+f123: Add full feature in one commit # **Thus line**
+
+# This is the commit message #2:
+
+f2: Add Part 2
+
+# This is the commit message #3:
+
+f3: Add Part 3
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+
 ```
 
 Then save and exit.
@@ -1537,8 +1558,11 @@ git log --oneline
 ```
 
 ```
-f123: Add full feature in one commit
-a1: Base commit
+aravi@Aravind MINGW64 ~/devops/challenge8 (feature)
+$ git log --oneline
+64238f8 (HEAD -> feature) f123: Add full feature in one commit
+950222a (master) a1: Base commit
+
 ```
 
 🧠 **What happened:**
@@ -1554,7 +1578,6 @@ a1: Base commit
 |--------------------|----------------------------|----------------------------|
 | Interactive Rebase | `git rebase -i <base>`     | Squashes + edit history    |
 | Squash             | `squash` in rebase editor  | Combines commits           |
-| Fixup              | `fixup` in rebase editor   | Combines + skips message   |
 
 ---
 
