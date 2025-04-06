@@ -604,7 +604,7 @@ $  git log --oneline --graph --all --decorate --date-order
 
 ---
 
-### 💣 Challenge 4: Undo a Commit Using `git reset` & `git revert`
+# 💣 Challenge 4: Undo a Commit Using `git reset` & `git revert`
 
 ---
 
@@ -615,11 +615,18 @@ Understand how to undo commits using:
 
 ---
 
-### 🧪 Step 1: Init and Setup
+#### 1. **Initialize the Repo**
 
 ```bash
 mkdir challenge4 && cd challenge4
 git init
+```
+
+---
+
+#### 2. **Create and Commit**
+
+```bash
 echo "line A" > file.txt
 git add . && git commit -m "a1: Add line A"
 
@@ -635,7 +642,11 @@ git add . && git commit -m "d1: Add line D"
 
 ---
 
-### 📜 `git log --oneline`
+#### 3. **Check the Commit History**
+
+```bash
+git log --oneline
+```
 
 ```
 d1 Add line D
@@ -646,7 +657,7 @@ a1 Add line A
 
 ---
 
-### 🔁 Step 2: `git reset --soft HEAD~1`
+#### 4. **Undo with `git reset --soft HEAD~1`**
 
 ```bash
 git reset --soft HEAD~1
@@ -657,9 +668,9 @@ git reset --soft HEAD~1
 - 🟢 Changes from `d1` are still **staged**
 - 📁 Working directory is untouched
 
----
-
-### 📜 `git status`
+```bash
+git status
+```
 
 ```
 Changes to be committed:
@@ -668,7 +679,7 @@ Changes to be committed:
 
 ---
 
-### 🔁 Step 3: `git reset --mixed HEAD~1`
+#### 5. **Undo with `git reset --mixed HEAD~1`**
 
 ```bash
 git add . && git commit -m "d1: Add line D"
@@ -680,9 +691,9 @@ git reset --mixed HEAD~1
 - 🔄 Changes moved to **unstaged**
 - 📁 Working directory still contains the changes
 
----
-
-### 📜 `git status`
+```bash
+git status
+```
 
 ```
 Changes not staged for commit:
@@ -691,7 +702,7 @@ Changes not staged for commit:
 
 ---
 
-### 🔁 Step 4: `git reset --hard HEAD~1`
+#### 6. **Undo with `git reset --hard HEAD~1`**
 
 ```bash
 git add . && git commit -m "d1: Add line D"
@@ -705,7 +716,7 @@ git reset --hard HEAD~1
 
 ---
 
-### 🔁 Step 5: `git revert HEAD`
+#### 7. **Undo with `git revert HEAD`**
 
 ```bash
 git add . && git commit -m "d1: Add line D"
@@ -719,14 +730,35 @@ git revert HEAD
 
 ---
 
-### 🧠 Summary Table
+#### ✅ Bonus Tip: Recover with `git reflog`
+If you did a `--hard` reset and regret it:
+
+```bash
+git reflog
+```
+
+Then:
+```bash
+git checkout <commit-hash>
+```
+
+Or:
+```bash
+git reset --hard <commit-hash>
+```
+
+---
+
+Let me know if you'd like to practice this with a branching scenario, or need a visual before/after commit tree!
+#### 8. **Summary Table**
 
 | Command              | Removes Commit | Keeps Changes | Stages Changes | Safe to Share |
 |----------------------|----------------|----------------|----------------|----------------|
 | `reset --soft`       | ✅             | ✅              | ✅              | ❌             |
 | `reset --mixed`      | ✅             | ✅              | ❌              | ❌             |
 | `reset --hard`       | ✅             | ❌              | ❌              | ❌             |
-| `revert`             | ❌             | ✅ (undo via new commit) | ✅ | ✅             |
+| `revert`             | ❌             | ✅ (via new commit) | ✅         | ✅             |
 
 ---
+
 
