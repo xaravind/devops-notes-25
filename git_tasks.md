@@ -16,7 +16,7 @@
 
 #### 1. **Initialize a Repo**
 ```bash
-mkdir challange1 && cd challange1
+mkdir challenge1 && cd challenge1
 git init
 ```
 > 🎓 `git init` starts a new Git repo in the folder.
@@ -158,12 +158,12 @@ You should now see something like:
 
 1. **Create a directory**
 ```bash
-   mkdir challange2
+   mkdir challenge2
    ```
    
 2. **Go to the directory**
    ```bash
-   cd challange2
+   cd challenge2
    ```
 
 3. **Initialize Git**
@@ -293,7 +293,7 @@ a1 Base: Add Line A
 
 #### 🔹 Step 1️⃣: Init
 ```bash
-mkdir challange3 && cd challange3
+mkdir challenge3 && cd chellange3
 git init
 ```
 
