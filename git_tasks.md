@@ -604,9 +604,8 @@ $  git log --oneline --graph --all --decorate --date-order
 
 ---
 
-# 💣 Challenge 4: Undo a Commit Using `git reset` & `git revert`
+### 💣 Challenge 4: Undo a Commit Using `git reset` & `git revert`
 
----
 
 #### 🎯 Objective:
 Understand how to undo commits using:
