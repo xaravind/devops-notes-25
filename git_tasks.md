@@ -921,13 +921,8 @@ So the original commit is still there — **safe and untouched**!
 | `revert`          | 👮 Writing a formal report to undo something without hiding it |
 
 ---
-Got it! Here's the updated challenge with the corrected subheading:
 
----
-
-### 🧨 Challenge 5: Amend the last commit message and add a forgotten file to the last commit using git commit --amend.
-
----
+### 🧨 **Challenge 5: Amend the last commit message and add a forgotten file to the last commit using git commit --amend.*
 
 #### 🎯 Objective:
 Learn how to:
@@ -1062,5 +1057,140 @@ $ git log --oneline
 |---------------------------------|------------------------------------|--------------------|-----------------|
 | Add file to last commit         | `git commit --amend --no-edit`     | ✅                 | ❌              |
 | Edit last commit message        | `git commit --amend -m "..."`      | ✅                 | ❌              |
+
+---
+Awesome! Let’s jump into the next one with the same clean format, emoji structure, and step-by-step clarity:
+
+---
+
+# ⚙️ Challenge 6: Set Up Git Hooks (Pre-Commit or Post-Commit)
+
+---
+
+#### 🎯 Objective:
+Learn how to use Git hooks to:
+- ✅ Automatically run a check **before** a commit (`pre-commit`)
+- ✅ Optionally run actions **after** a commit (`post-commit`)
+- 🔒 Prevent bad commits from entering your history
+
+---
+
+#### 1. **Initialize a Git Repo**
+
+```bash
+mkdir hooks-lab && cd hooks-lab
+git init
+```
+
+---
+
+#### 2. **Create a Sample File**
+
+```bash
+echo "Initial content" > file.txt
+```
+
+---
+
+#### 3. **Create a Pre-Commit Hook**
+
+```bash
+mkdir -p .git/hooks
+cat > .git/hooks/pre-commit << 'EOF'
+#!/bin/bash
+if grep -q "badword" file.txt; then
+  echo "❌ Commit rejected: 'badword' found in file.txt"
+  exit 1
+fi
+EOF
+chmod +x .git/hooks/pre-commit
+```
+
+🧠 **What happened:**
+- 📌 This pre-commit hook **rejects commits** if `file.txt` contains `"badword"`
+- 🛑 Commits won't proceed until the file is clean
+
+---
+
+#### 4. **Test the Hook (With a Passing Case)**
+
+```bash
+git add file.txt
+git commit -m "a1: Clean commit - no bad words"
+```
+
+✅ Commit goes through because `file.txt` has clean content.
+
+---
+
+#### 5. **Edit File with a Bad Word**
+
+```bash
+echo "This line has a badword" >> file.txt
+```
+
+---
+
+#### 6. **Try Committing Again**
+
+```bash
+git add file.txt
+git commit -m "a2: Try to commit bad content"
+```
+
+```
+❌ Commit rejected: 'badword' found in file.txt
+```
+
+🧠 **What happened:**
+- 🛑 The pre-commit hook blocked the commit
+- 🧼 You'll need to clean the file before continuing
+
+---
+
+#### 7. **Clean the File and Commit**
+
+```bash
+sed -i '/badword/d' file.txt  # or edit manually
+git add file.txt
+git commit -m "a2: Cleaned file and committed"
+```
+
+---
+
+#### 8. **(Optional) Set Up a Post-Commit Hook**
+
+```bash
+cat > .git/hooks/post-commit << 'EOF'
+#!/bin/bash
+echo "✅ Commit was successful!" >> commit.log
+EOF
+chmod +x .git/hooks/post-commit
+```
+
+🧠 **What happened:**
+- 🪄 After each successful commit, a message is logged to `commit.log`
+
+---
+
+#### 9. **Check the Commit Log**
+
+```bash
+git log --oneline
+```
+
+```
+a2: Cleaned file and committed
+a1: Clean commit - no bad words
+```
+
+---
+
+#### 10. **Summary Table**
+
+| Hook Type      | When It Runs     | Purpose                            | Stops Commit? |
+|----------------|------------------|------------------------------------|----------------|
+| `pre-commit`   | Before `git commit` | Validate files, prevent bad code   | ✅ Yes         |
+| `post-commit`  | After `git commit`  | Notify, log, or automate actions   | ❌ No          |
 
 ---
