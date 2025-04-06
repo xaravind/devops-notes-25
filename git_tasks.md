@@ -260,8 +260,7 @@ You should now see something like:
 
 ---
 
-### 🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`.**
-
+### 🧨 **Challenge 3: Create a merge conflict scenario and manually resolve it using git merge and git rebase.**
 ---
 
 #### 🧪 Objective:
@@ -604,8 +603,7 @@ $  git log --oneline --graph --all --decorate --date-order
 
 ---
 
-### 💣 Challenge 4: Undo a Commit Using `git reset` & `git revert`
-
+### 💣Challenge 4: Undo a commit using git reset (soft, mixed, and hard) and git revert – understand the differences.
 
 #### 🎯 Objective:
 Understand how to undo commits using:
@@ -923,6 +921,105 @@ So the original commit is still there — **safe and untouched**!
 | `revert`          | 👮 Writing a formal report to undo something without hiding it |
 
 ---
+Got it! Here's the updated challenge with the corrected subheading:
 
+---
 
+### 🧨 Challenge 5: Amend the last commit message and add a forgotten file to the last commit using git commit --amend.
 
+---
+
+#### 🎯 Objective:
+Learn how to:
+- ✏️ Change the last commit message  
+- 📦 Add a forgotten file to the last commit  
+- 🧽 Clean up mistakes without creating new commits  
+
+---
+
+#### 1. **Initialize the Repo**
+
+```bash
+mkdir amend-lab && cd amend-lab
+git init
+```
+
+---
+
+#### 2. **Create and Commit Initial Files**
+
+```bash
+echo "This is main content" > main.txt
+git add main.txt
+git commit -m "a1: Initial commit with main file"
+```
+
+---
+
+#### 3. **Add Forgotten File**
+
+```bash
+echo "Forgotten content" > forgotten.txt
+```
+
+---
+
+#### 4. **Check Commit History**
+
+```bash
+git log --oneline
+```
+
+```
+a1: Initial commit with main file
+```
+
+---
+
+#### 5. **Amend the Last Commit to Include the Forgotten File**
+
+```bash
+git add forgotten.txt
+git commit --amend --no-edit
+```
+
+🧠 **What happened:**
+- 🧩 `forgotten.txt` was added to the **previous commit**  
+- 📝 Commit message **remains unchanged**  
+- 🔂 No new commit created  
+
+---
+
+#### 6. **Amend the Last Commit Message**
+
+```bash
+git commit --amend -m "a1: Add main file and forgotten file"
+```
+
+🧠 **What happened:**
+- 🧠 Commit message was updated  
+- 🔄 Same commit ID (rewritten)  
+- 🔐 Not safe if already pushed to remote!  
+
+---
+
+#### 7. **Check Final Commit History**
+
+```bash
+git log --oneline
+```
+
+```
+a1: Add main file and forgotten file
+```
+
+---
+
+#### 8. **Summary Table**
+
+| Action                          | Command                            | Changes Commit ID? | Safe if pushed? |
+|---------------------------------|------------------------------------|--------------------|-----------------|
+| Add file to last commit         | `git commit --amend --no-edit`     | ✅                 | ❌              |
+| Edit last commit message        | `git commit --amend -m "..."`      | ✅                 | ❌              |
+
+---
