@@ -259,9 +259,6 @@ You should now see something like:
 - ✔️ It Added one more commit in `master` branch `b884bc6` with the same commit msg from `dev` branch, `master3_dev`.
 
 ---
-Love the enthusiasm! Let’s dive into **Challenge 3**, building off that same style and energy 💥
-
----
 
 ### 🧨 **Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`**
 
@@ -457,4 +454,3 @@ git log --oneline --graph --all
 
 ---
 
-Want to expand this next by simulating collaboration with a remote (`origin`) and pushing with `--force-with-lease` after a rebase?
