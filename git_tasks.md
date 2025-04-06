@@ -1113,6 +1113,20 @@ chmod +x .git/hooks/pre-commit
 - 📌 This pre-commit hook **rejects commits** if `file.txt` contains `"badword"`
 - 🛑 Commits won't proceed until the file is clean
 
+```
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ ll .git/hooks/pre-commit
+-rwxr-xr-x 1 aravi 197609 118 Apr  6 17:40 .git/hooks/pre-commit*
+
+aravi@Aravind MINGW64 ~/devops/challenge6 (master)
+$ cat .git/hooks/pre-commit
+#!/bin/bash
+if grep -q "badword" file.txt; then
+  echo "❌ Commit rejected: 'badword' found in file.txt"
+  exit 1
+fi
+```
+
 ---
 
 #### 4. **Test the Hook (With a Passing Case)**
