@@ -1077,7 +1077,7 @@ Learn how to use Git hooks to:
 #### 1. **Initialize a Git Repo**
 
 ```bash
-mkdir hooks-lab && cd hooks-lab
+mkdir challenge6 && cd challenge6
 git init
 ```
 
