@@ -1105,7 +1105,8 @@ EOF
 chmod +x .git/hooks/pre-commit
 ```
 
-<< 'EOF'	Start reading lines until it finds a line that says EOF exactly
+<< 'EOF'	Start reading lines until it finds a line that says EOF exactly.
+
 'EOF' (quoted)	Quoting prevents variable expansion ($VAR stays as-is, not expanded)
 
 🧠 **What happened:**
