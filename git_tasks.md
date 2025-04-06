@@ -299,7 +299,7 @@ a1 Base: Add Line A
 
 ### 1️⃣ Initialize Repo & Base Commit
 ```bash
-mkdir git-conflict-demo && cd git-conflict-demo
+mkdir challange3 && cd challange3
 git init
 echo "Line A" > file.txt
 git add file.txt
