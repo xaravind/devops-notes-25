@@ -356,14 +356,18 @@ git log --oneline --graph --all --date-order
 ```
 
 ```
-* f3 (feature) Feature: Add Line D
-* m4 (master) Master: Add Line Z
-* f2 Feature: Add Line C
-* m3 Master: Add Line Y
-* b1 Feature: Add Line B
-* m2 Master: Add Line X
-* m1 Master: Add Line T
-* a1 Base: Add Line A
+aravi@Aravind MINGW64 ~/devops/challange3 (feature)
+$ git log --oneline --graph --all --date-order
+* a8165e0 (HEAD -> feature) f3 Feature: Add Line D
+| * 4178923 (master) m4 Master: Add Line Z
+* | e541989 f2 Feature: Add Line C
+| * b5cb3aa m3 Master: Add Line Y
+* | 894db87 b1 Feature: Add Line B
+|/
+* f91879a m2 Master: Add Line X
+* ac130f9 m1 Master: Add Line T
+* bfb2dc8 a1 Base: Add Line A
+
 ```
 
 ---
@@ -381,6 +385,8 @@ git merge feature
 #### 🔹 Step 1️⃣1️⃣: Resolve Merge Conflict
 Edit `file.txt`:
 ```
+aravi@Aravind MINGW64 ~/devops/challange3 (master|MERGING)
+$ cat file.txt
 Line A
 Master Line T
 Master Line X
@@ -389,6 +395,7 @@ Master Line Y
 Feature Line C
 Master Line Z
 Feature Line D
+
 ```
 Then:
 ```bash
@@ -398,22 +405,56 @@ git commit -m "m5 Master: Merge feature into master"
 
 #### 🔍 Step 1️⃣2️⃣: Git Log After Merge
 ```bash
-git log --oneline --graph --all
+git log --oneline
 ```
 
 ```
-*   m5 (HEAD -> master) Master: Merge feature into master
-|\
-| * f3 (feature) Feature: Add Line D
-| * f2 Feature: Add Line C
-| * b1 Feature: Add Line B
-* | m4 Master: Add Line Z
-* | m3 Master: Add Line Y
-* | m2 Master: Add Line X
-* | m1 Master: Add Line T
-|/
-* a1 Base: Add Line A
+aravi@Aravind MINGW64 ~/devops/challange3 (master)
+$ git log --oneline
+60ea1d4 (HEAD -> master) m5 Master: Merge feature into master
+a8165e0 (feature) f3 Feature: Add Line D
+4178923 m4 Master: Add Line Z
+e541989 f2 Feature: Add Line C
+b5cb3aa m3 Master: Add Line Y
+894db87 b1 Feature: Add Line B
+f91879a m2 Master: Add Line X
+ac130f9 m1 Master: Add Line T
+bfb2dc8 a1 Base: Add Line A
+
 ```
+### 📝 Summary: Why Step 12 Log Looks Overlapped After Merge
+
+- `git merge` creates a **merge commit** with **two parents**: one from `master`, one from `feature`.
+- Running `git log --oneline` **flattens** the history — it doesn’t show the branch structure.
+- This causes commits from both branches to appear **mixed and unordered**, making it hard to read.
+
+✅ **Fix**: Use a structured log view:
+```bash
+git log --oneline --graph --all --decorate --date-order
+```
+
+```
+aravi@Aravind MINGW64 ~/devops/challange3 (master)
+$ git log --oneline --graph --all --decorate --date-order
+*   60ea1d4 (HEAD -> master) m5 Master: Merge feature into master
+|\
+| * a8165e0 (feature) f3 Feature: Add Line D
+* | 4178923 m4 Master: Add Line Z
+| * e541989 f2 Feature: Add Line C
+* | b5cb3aa m3 Master: Add Line Y
+| * 894db87 b1 Feature: Add Line B
+|/
+* f91879a m2 Master: Add Line X
+* ac130f9 m1 Master: Add Line T
+* bfb2dc8 a1 Base: Add Line A
+```
+
+This shows:
+- 🔀 True branching history
+- 📌 Which commits came from `master` vs `feature`
+- 🔁 How the merge commit connects them
+
+Much easier to follow! 🙌
 
 ---
 
