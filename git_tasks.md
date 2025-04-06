@@ -260,13 +260,7 @@ You should now see something like:
 
 ---
 
-Got it! 🔁 Let’s switch all mentions of `main` ➡️ `master` to match your local setup.
-
-Here’s the **updated Challenge 3** with everything using the `master` branch:
-
----
-
-# 🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`
+### 🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`.**
 
 ---
 
