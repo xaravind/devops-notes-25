@@ -1,4 +1,145 @@
+Awesome! Here's a hands-on **Git task** to help you practice interactive rebase, from the very beginning (`git init`). I’ll walk you through what to do at each step and explain what's going on.
 
+---
+
+### 🧪 **Challenge 1: Perform an interactive rebase to modify commit history (rename, squash, reorder commits).**
+
+#### 📌 Objective:
+1. Initialize a git repo.
+2. Make 4 commits with dummy files.
+3. Use interactive rebase to:
+   - Reorder the commits.
+   - Squash two commits together.
+   - Rename a commit message.
+
+---
+
+### ✅ **Step-by-Step Instructions**
+
+---
+
+#### 1. **Initialize a Repo**
+```bash
+mkdir challange1
+git init
+```
+> 🎓 `git init` starts a new Git repo in the folder.
+
+---
+
+#### 2. **Create and Commit 4 Files**
+```bash
+echo "First" > file1.txt
+git add .
+git commit -m "Add file1"
+
+echo "Second" > file2.txt
+git add .
+git commit -m "Add file2"
+
+echo "Third" > file3.txt
+git add .
+git commit -m "Add file3"
+
+echo "Fourth" > file4.txt
+git add .
+git commit -m "Add file4"
+```
+> 🎓 You’ve now got 4 commits in your repo.
+
+---
+
+#### 3. **Check the Commit History**
+```bash
+git log --oneline
+```
+> 🧠 You'll see something like:
+```
+abcd123 Add file4
+bcde234 Add file3
+cdef345 Add file2
+def4567 Add file1
+```
+
+---
+
+#### 4. **Start an Interactive Rebase**
+We want to edit the last 4 commits:
+```bash
+git rebase -i HEAD~4
+```
+
+> 🛠 This opens a text editor with lines like:
+```
+pick def4567 Add file1
+pick cdef345 Add file2
+pick bcde234 Add file3
+pick abcd123 Add file4
+```
+
+Now let’s:
+- ✅ **Rename** "Add file2" to "Second file added"
+- ✅ **Squash** "Add file3" into "Add file4"
+- ✅ **Reorder** so file2 comes after file4
+
+Change the lines to:
+```
+pick def4567 Add file1
+pick abcd123 Add file4
+pick cdef345 Add file2
+squash bcde234 Add file3
+```
+
+> 🧠 `pick` means "keep this commit as is", `squash` means "combine with the previous commit".
+
+---
+
+#### 5. **Edit the Commit Message When Prompted**
+You'll get a prompt like:
+```
+# This is a combination of 2 commits.
+# The first commit's message is:
+
+Add file4
+
+# The second commit's message is:
+
+Add file3
+```
+
+Edit it to say:
+```
+Add file4 and file3 together
+```
+
+Save and exit.
+
+---
+
+#### 6. **Done! View the New History**
+```bash
+git log --oneline
+```
+
+You should now see something like:
+```
+1234abc Add file4 and file3 together
+2345bcd Second file added
+3456cde Add file1
+```
+
+---
+
+### ✅ Summary of What You Did
+- ✔️ Used `git init` to start fresh
+- ✔️ Created 4 commits
+- ✔️ Reordered commits using interactive rebase
+- ✔️ Squashed 2 commits into 1
+- ✔️ Renamed a commit
+
+---
+
+Want to level this up next with a simulated "mistake" and an interactive fix using rebase or `git reflog`?
  **Challenge 2: Use `git cherry-pick` to apply a specific commit from another branch to your current branch**
 
 **Steps** 
