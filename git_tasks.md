@@ -260,7 +260,13 @@ You should now see something like:
 
 ---
 
-###  🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`.**
+Got it! 🔁 Let’s switch all mentions of `main` ➡️ `master` to match your local setup.
+
+Here’s the **updated Challenge 3** with everything using the `master` branch:
+
+---
+
+# 🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`
 
 ---
 
@@ -268,7 +274,7 @@ You should now see something like:
 
 Simulate a realistic scenario where:
 
-- `main` and `feature` branches diverge
+- `master` and `feature` branches diverge
 - Commits are **crossed**
 - A merge conflict occurs
 - You resolve it using:
@@ -278,18 +284,18 @@ Simulate a realistic scenario where:
 
 ---
 
-## ✅ crossed Commit Plan
+## ✅ cross Commit Plan
 
 Target commit history:
 
 ```
 f3 Feature: Add Line D
-m4 Main: Add Line Z
+m4 Master: Add Line Z
 f2 Feature: Add Line C
-m3 Main: Add Line Y
+m3 Master: Add Line Y
 b1 Feature: Add Line B
-m2 Main: Add Line X
-m1 Main: Add Line T
+m2 Master: Add Line X
+m1 Master: Add Line T
 a1 Base: Add Line A
 ```
 
@@ -299,7 +305,7 @@ a1 Base: Add Line A
 
 ### 1️⃣ Initialize Repo & Base Commit
 ```bash
-mkdir challange3 && cd challange3
+mkdir git-conflict-demo && cd git-conflict-demo
 git init
 echo "Line A" > file.txt
 git add file.txt
@@ -308,13 +314,13 @@ git commit -m "a1 Base: Add Line A"
 
 ---
 
-### 2️⃣ Main Commits: `m1`, `m2`
+### 2️⃣ Master Commits: `m1`, `m2`
 ```bash
-echo "Main Line T" >> file.txt
-git commit -am "m1 Main: Add Line T"
+echo "Master Line T" >> file.txt
+git commit -am "m1 Master: Add Line T"
 
-echo "Main Line X" >> file.txt
-git commit -am "m2 Main: Add Line X"
+echo "Master Line X" >> file.txt
+git commit -am "m2 Master: Add Line X"
 ```
 
 ---
@@ -328,11 +334,11 @@ git commit -am "b1 Feature: Add Line B"
 
 ---
 
-### 4️⃣ Back to Main: Commit `m3`
+### 4️⃣ Back to Master: Commit `m3`
 ```bash
-git checkout main
-echo "Main Line Y" >> file.txt
-git commit -am "m3 Main: Add Line Y"
+git checkout master
+echo "Master Line Y" >> file.txt
+git commit -am "m3 Master: Add Line Y"
 ```
 
 ---
@@ -346,11 +352,11 @@ git commit -am "f2 Feature: Add Line C"
 
 ---
 
-### 6️⃣ Main: Commit `m4`
+### 6️⃣ Master: Commit `m4`
 ```bash
-git checkout main
-echo "Main Line Z" >> file.txt
-git commit -am "m4 Main: Add Line Z"
+git checkout master
+echo "Master Line Z" >> file.txt
+git commit -am "m4 Master: Add Line Z"
 ```
 
 ---
@@ -373,12 +379,12 @@ Expected output:
 
 ```
 * f3 (feature) Feature: Add Line D
-* m4 (main) Main: Add Line Z
+* m4 (master) Master: Add Line Z
 * f2 Feature: Add Line C
-* m3 Main: Add Line Y
+* m3 Master: Add Line Y
 * b1 Feature: Add Line B
-* m2 Main: Add Line X
-* m1 Main: Add Line T
+* m2 Master: Add Line X
+* m1 Master: Add Line T
 * a1 Base: Add Line A
 ```
 
@@ -388,7 +394,7 @@ Expected output:
 
 ### 🔨 Attempt Merge
 ```bash
-git checkout main
+git checkout master
 git merge feature
 ```
 
@@ -401,12 +407,12 @@ Edit `file.txt` to resolve the conflict:
 
 ```txt
 Line A
-Main Line T
-Main Line X
+Master Line T
+Master Line X
 Feature Line B
-Main Line Y
+Master Line Y
 Feature Line C
-Main Line Z
+Master Line Z
 Feature Line D
 ```
 
@@ -414,7 +420,7 @@ Then commit:
 
 ```bash
 git add file.txt
-git commit -m "m5 Main: Merge feature into main"
+git commit -m "m5 Master: Merge feature into master"
 ```
 
 ---
@@ -425,15 +431,15 @@ git log --oneline --graph --all
 ```
 
 ```
-*   m5 (HEAD -> main) Main: Merge feature into main
+*   m5 (HEAD -> master) Master: Merge feature into master
 |\
 | * f3 (feature) Feature: Add Line D
 | * f2 Feature: Add Line C
 | * b1 Feature: Add Line B
-* | m4 Main: Add Line Z
-* | m3 Main: Add Line Y
-* | m2 Main: Add Line X
-* | m1 Main: Add Line T
+* | m4 Master: Add Line Z
+* | m3 Master: Add Line Y
+* | m2 Master: Add Line X
+* | m1 Master: Add Line T
 |/
 * a1 Base: Add Line A
 ```
@@ -450,9 +456,9 @@ git checkout feature
 
 ---
 
-### 🔁 Rebase Feature onto Main
+### 🔁 Rebase Feature onto Master
 ```bash
-git rebase main
+git rebase master
 ```
 
 💥 Conflict will occur → edit `file.txt` as before.
@@ -468,7 +474,7 @@ Repeat for each conflict until rebase completes.
 
 ### ✅ Final Fast-Forward
 ```bash
-git checkout main
+git checkout master
 git merge feature --ff-only
 ```
 
@@ -480,13 +486,13 @@ git log --oneline --graph --all
 ```
 
 ```
-* f3 (HEAD -> main, feature) Feature: Add Line D
+* f3 (HEAD -> master, feature) Feature: Add Line D
 * f2 Feature: Add Line C
 * b1 Feature: Add Line B
-* m4 Main: Add Line Z
-* m3 Main: Add Line Y
-* m2 Main: Add Line X
-* m1 Main: Add Line T
+* m4 Master: Add Line Z
+* m3 Master: Add Line Y
+* m2 Master: Add Line X
+* m1 Master: Add Line T
 * a1 Base: Add Line A
 ```
 
@@ -500,5 +506,3 @@ git log --oneline --graph --all
 | Rebase | Clean linear commits  | Easy to read, clean timeline | Rewrites history (⚠️ careful) |
 
 ---
-
-
