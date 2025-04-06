@@ -1,4 +1,4 @@
-### 🧪 **Challenge 1: Perform an interactive rebase to modify commit history (rename, squash, reorder commits).**
+### 🧪 **Challenge 1: Perform an interactive rebase to modify commit history (rename, squash, reorder commits).*
 
 #### 📌 Objective:
 1. Initialize a git repo.
@@ -152,7 +152,7 @@ You should now see something like:
 
 ---
 
-🧪 **Challenge 2: Use `git cherry-pick` to apply a specific commit from another branch to your current branch**
+### 🧪 **Challenge 2: Use `git cherry-pick` to apply a specific commit from another branch to your current branch*
 
 **Steps** 
 
@@ -260,7 +260,7 @@ You should now see something like:
 
 ---
 
-### 🧨 **Challenge 3: Create a merge conflict scenario and manually resolve it using git merge and git rebase.**
+### 🧨 **Challenge 3: Create a merge conflict scenario and manually resolve it using git merge and git rebase.*
 ---
 
 #### 🧪 Objective:
@@ -603,7 +603,7 @@ $  git log --oneline --graph --all --decorate --date-order
 
 ---
 
-### 💣Challenge 4: Undo a commit using git reset (soft, mixed, and hard) and git revert – understand the differences.
+### **💣Challenge 4: Undo a commit using git reset (soft, mixed, and hard) and git revert – understand the differences.*
 
 #### 🎯 Objective:
 Understand how to undo commits using:
@@ -1063,8 +1063,7 @@ Awesome! Let’s jump into the next one with the same clean format, emoji struct
 
 ---
 
-# ⚙️ Challenge 6: Set Up Git Hooks (Pre-Commit or Post-Commit)
-
+### ⚙️ **Challenge 6: Set up Git hooks (pre-commit or post-commit) to automate a simple check before committing changes.*
 ---
 
 #### 🎯 Objective:
