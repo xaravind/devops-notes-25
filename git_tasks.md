@@ -1342,12 +1342,14 @@ git log --oneline --graph --all --decorate --date-order
 
 🧠 You’ll see a diverged history:
 ```
-* f2 (feature) Feature - Add Line 2
-* f1 Feature - Add Line 1
-| * m2 (master) Master - Add Line M2
-| * m1 Master - Add Line M1
-|/
-* a1 Base commit
+aravi@Aravind MINGW64 ~/devops/challenge7 (feature)
+$ git log --oneline --graph --all --decorate --date-order
+* 6450c7a (HEAD -> feature) f2: Feature - Add Line 2
+* d896410 f1: Feature - Add Line 1
+* 09fbaea (master) m2: Master - Add Line M2
+* f372ff3 m1: Master - Add Line M1
+* 107e660 a1: Base commit
+
 ```
 
 ---
@@ -1355,8 +1357,8 @@ git log --oneline --graph --all --decorate --date-order
 #### 7. **Rebase Feature Branch onto `master`**
 
 ```bash
-git checkout feature
-git rebase master
+git checkout master
+git rebase feature
 ```
 
 🧠 **What happened:**
@@ -1373,11 +1375,52 @@ git log --oneline --graph --all --decorate --date-order
 ```
 
 ```
-* f2 (feature) Feature - Add Line 2
-* f1 Feature - Add Line 1
-* m2 (master) Master - Add Line M2
-* m1 Master - Add Line M1
-* a1 Base commit
+aravi@Aravind MINGW64 ~/devops/challenge7 (feature)
+$ git log --oneline --graph --all --decorate --date-order
+* 6450c7a (HEAD -> feature) f2: Feature - Add Line 2
+* d896410 f1: Feature - Add Line 1
+* 09fbaea (master) m2: Master - Add Line M2
+* f372ff3 m1: Master - Add Line M1
+* 107e660 a1: Base commit
+
+aravi@Aravind MINGW64 ~/devops/challenge7 (feature)
+$ git checkout master
+Switched to branch 'master'
+
+aravi@Aravind MINGW64 ~/devops/challenge7 (master)
+$ git log --oneline --graph --all --decorate --date-order
+* 6450c7a (feature) f2: Feature - Add Line 2
+* d896410 f1: Feature - Add Line 1
+* 09fbaea (HEAD -> master) m2: Master - Add Line M2
+* f372ff3 m1: Master - Add Line M1
+* 107e660 a1: Base commit
+
+aravi@Aravind MINGW64 ~/devops/challenge7 (master)
+$ cat file.txt
+Base line
+Line M1
+Line M2
+
+aravi@Aravind MINGW64 ~/devops/challenge7 (master)
+$ git rebase feature
+Successfully rebased and updated refs/heads/master.
+
+aravi@Aravind MINGW64 ~/devops/challenge7 (master)
+$ cat file.txt
+Base line
+Line M1
+Line M2
+Feature Line 1
+Feature Line 2
+
+aravi@Aravind MINGW64 ~/devops/challenge7 (master)
+$ git log --oneline --graph
+* 6450c7a (HEAD -> master, feature) f2: Feature - Add Line 2
+* d896410 f1: Feature - Add Line 1
+* 09fbaea m2: Master - Add Line M2
+* f372ff3 m1: Master - Add Line M1
+* 107e660 a1: Base commit
+
 ```
 
 🧠 Feature commits now appear **after** master commits in one straight line.
