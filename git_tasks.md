@@ -1270,3 +1270,125 @@ c6126ca a2: removed badword
 | `post-commit`  | After `git commit`  | Notify, log, or automate actions   | ❌ No          |
 
 ---
+
+### *🔁 Challenge 7: Rebase a Feature Branch on Top of the Master Branch (No Merge Commits)*
+
+---
+
+#### 🎯 Objective:
+Learn how to:
+- 🎯 Rebase a feature branch onto the `master` branch
+- 🧼 Maintain a clean, linear history
+- 🚫 Avoid unnecessary merge commits
+
+---
+
+#### 1. **Initialize the Repo**
+
+```bash
+mkdir challenge7 && cd challenge8
+git init
+```
+
+---
+
+#### 2. **Create the Base Commit on `master`**
+
+```bash
+echo "Base line" > file.txt
+git add file.txt
+git commit -m "a1: Base commit"
+```
+
+---
+
+#### 3. **Add a Few More Commits to `master`**
+
+```bash
+echo "Line M1" >> file.txt
+git commit -am "m1: Master - Add Line M1"
+
+echo "Line M2" >> file.txt
+git commit -am "m2: Master - Add Line M2"
+```
+
+---
+
+#### 4. **Create and Switch to a Feature Branch**
+
+```bash
+git checkout -b feature
+```
+
+---
+
+#### 5. **Add Feature Commits**
+
+```bash
+echo "Feature Line 1" >> file.txt
+git commit -am "f1: Feature - Add Line 1"
+
+echo "Feature Line 2" >> file.txt
+git commit -am "f2: Feature - Add Line 2"
+```
+
+---
+
+#### 6. **Check Current Commit History**
+
+```bash
+git log --oneline --graph --all --decorate --date-order
+```
+
+🧠 You’ll see a diverged history:
+```
+* f2 (feature) Feature - Add Line 2
+* f1 Feature - Add Line 1
+| * m2 (master) Master - Add Line M2
+| * m1 Master - Add Line M1
+|/
+* a1 Base commit
+```
+
+---
+
+#### 7. **Rebase Feature Branch onto `master`**
+
+```bash
+git checkout feature
+git rebase master
+```
+
+🧠 **What happened:**
+- 🧼 Feature commits were replayed on top of the `master` branch
+- ➰ No merge commit was created
+- 📜 The history is now **linear**
+
+---
+
+#### 8. **Check Commit History Again**
+
+```bash
+git log --oneline --graph --all --decorate --date-order
+```
+
+```
+* f2 (feature) Feature - Add Line 2
+* f1 Feature - Add Line 1
+* m2 (master) Master - Add Line M2
+* m1 Master - Add Line M1
+* a1 Base commit
+```
+
+🧠 Feature commits now appear **after** master commits in one straight line.
+
+---
+
+#### 9. **Summary Table**
+
+| Action        | Command             | Creates Merge Commit? | Result                |
+|---------------|---------------------|------------------------|------------------------|
+| Merge         | `git merge master`  | ✅ Yes                 | Branches converge      |
+| Rebase        | `git rebase master` | ❌ No                  | Linear history         |
+
+---
