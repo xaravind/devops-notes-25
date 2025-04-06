@@ -618,7 +618,7 @@ Understand how to undo commits using:
 ### 🧪 Step 1: Init and Setup
 
 ```bash
-mkdir challenge4 && cd challange4
+mkdir challenge4 && cd challenge4
 git init
 echo "line A" > file.txt
 git add . && git commit -m "a1: Add line A"
