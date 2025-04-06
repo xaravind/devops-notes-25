@@ -260,7 +260,7 @@ You should now see something like:
 
 ---
 
-# 🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`
+###  🧨 Challenge 3: Create a Merge Conflict Scenario & Resolve It with `git merge` and `git rebase`.**
 
 ---
 
