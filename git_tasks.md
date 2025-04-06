@@ -604,4 +604,129 @@ $  git log --oneline --graph --all --decorate --date-order
 
 ---
 
+### 💣 Challenge 4: Undo a Commit Using `git reset` & `git revert`
+
+---
+
+#### 🎯 Objective:
+Understand how to undo commits using:
+- `git reset` (`--soft`, `--mixed`, `--hard`)
+- `git revert`
+
+---
+
+### 🧪 Step 1: Init and Setup
+
+```bash
+mkdir challenge4 && cd challange4
+git init
+echo "line A" > file.txt
+git add . && git commit -m "a1: Add line A"
+
+echo "line B" >> file.txt
+git add . && git commit -m "b1: Add line B"
+
+echo "line C" >> file.txt
+git add . && git commit -m "c1: Add line C"
+
+echo "line D" >> file.txt
+git add . && git commit -m "d1: Add line D"
+```
+
+---
+
+### 📜 `git log --oneline`
+
+```
+d1 Add line D
+c1 Add line C
+b1 Add line B
+a1 Add line A
+```
+
+---
+
+### 🔁 Step 2: `git reset --soft HEAD~1`
+
+```bash
+git reset --soft HEAD~1
+```
+
+🧠 **What happened:**
+- ✅ Commit `d1` removed from history
+- 🟢 Changes from `d1` are still **staged**
+- 📁 Working directory is untouched
+
+---
+
+### 📜 `git status`
+
+```
+Changes to be committed:
+	modified: file.txt
+```
+
+---
+
+### 🔁 Step 3: `git reset --mixed HEAD~1`
+
+```bash
+git add . && git commit -m "d1: Add line D"
+git reset --mixed HEAD~1
+```
+
+🧠 **What happened:**
+- ✅ Commit `d1` removed
+- 🔄 Changes moved to **unstaged**
+- 📁 Working directory still contains the changes
+
+---
+
+### 📜 `git status`
+
+```
+Changes not staged for commit:
+	modified: file.txt
+```
+
+---
+
+### 🔁 Step 4: `git reset --hard HEAD~1`
+
+```bash
+git add . && git commit -m "d1: Add line D"
+git reset --hard HEAD~1
+```
+
+🧠 **What happened:**
+- 💣 Commit `d1` is erased
+- 🔥 Changes to file are gone from disk
+- 🧼 Clean working directory and staging area
+
+---
+
+### 🔁 Step 5: `git revert HEAD`
+
+```bash
+git add . && git commit -m "d1: Add line D"
+git revert HEAD
+```
+
+🧠 **What happened:**
+- 🆕 A new commit is created to undo `d1`
+- ✅ No commits are removed
+- 🔐 Safe for public/shared branches
+
+---
+
+### 🧠 Summary Table
+
+| Command              | Removes Commit | Keeps Changes | Stages Changes | Safe to Share |
+|----------------------|----------------|----------------|----------------|----------------|
+| `reset --soft`       | ✅             | ✅              | ✅              | ❌             |
+| `reset --mixed`      | ✅             | ✅              | ❌              | ❌             |
+| `reset --hard`       | ✅             | ❌              | ❌              | ❌             |
+| `revert`             | ❌             | ✅ (undo via new commit) | ✅ | ✅             |
+
+---
 
