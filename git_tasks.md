@@ -940,7 +940,7 @@ Learn how to:
 #### 1. **Initialize the Repo**
 
 ```bash
-mkdir amend-lab && cd amend-lab
+mkdir challenge5 && cd challenge5
 git init
 ```
 
