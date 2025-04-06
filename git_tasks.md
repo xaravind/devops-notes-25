@@ -297,7 +297,7 @@ a1 Base: Add Line A
 
 #### 🔹 Step 1️⃣: Init
 ```bash
-mkdir git-conflict-demo && cd git-conflict-demo
+mkdir challange3 && cd challange3
 git init
 ```
 
