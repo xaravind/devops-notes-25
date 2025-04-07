@@ -122,7 +122,7 @@ Add file3
 
 Edit it to say:
 ```
-Add file4 and file3 together
+Add file2 and file3 together
 ```
 
 Save and exit.(:wq)
@@ -1057,9 +1057,6 @@ $ git log --oneline
 |---------------------------------|------------------------------------|--------------------|-----------------|
 | Add file to last commit         | `git commit --amend --no-edit`     | ✅                 | ❌              |
 | Edit last commit message        | `git commit --amend -m "..."`      | ✅                 | ❌              |
-
----
-Awesome! Let’s jump into the next one with the same clean format, emoji structure, and step-by-step clarity:
 
 ---
 
