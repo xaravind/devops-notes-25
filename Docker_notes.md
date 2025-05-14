@@ -175,7 +175,7 @@ Monolithic → Microservices → Virtualization → Containerization → Docker
 
 ---
 
-## Appendix: Common Docker Commands
+## Common Docker Commands
 
 ```bash
 # Build an image from a Dockerfile
@@ -189,6 +189,31 @@ docker ps
 
 # Stop a container
 docker stop <container_id>
+
+# Remove all images
+docker rmi `docker images -a -q`
+
+# Remove all containers
+docker rm -f `docker ps -a -q`
+
+# View container logs
+docker logs <container-id>
+
+# Follow logs of a running container
+docker logs -f <container-id>
+
+# Inspect a container or image
+docker inspect <container-id/image-id>
+
+# Execute a command inside a running container
+docker exec -it <container-id> bash
+
+# To push image to docker repo
+
+docker login # give username and password
+docker tag username/<image-name>:version # tag
+docker push username/<image-name>:version # push
+
 ```
 
 ---
