@@ -60,6 +60,10 @@ A ride-sharing app may split services like user auth, ride booking, payments, an
 
 **Virtualization** allows multiple Virtual Machines (VMs) to run on a single physical server using a **hypervisor**.
 
+**Virtualization** allows multiple services or applications to run on a single physical server by creating **Virtual Machines (VMs)** using a **hypervisor** (such as VMware, VirtualBox, or Hyper-V). The hypervisor splits the server’s physical resources — CPU, memory, storage, and network — and allocates them to each VM.
+
+A **Virtual Machine** is a software-based system that behaves like a real computer. Each VM runs independently and has its own operating system, memory, CPU, and storage. This isolation allows you to run different applications or even different operating systems safely on the same physical hardware.
+
 ###  Key Capabilities:
 
 * Each VM includes a full OS.
@@ -86,6 +90,10 @@ A ride-sharing app may split services like user auth, ride booking, payments, an
 ##  Containerization
 
 **Containers** are lightweight, standalone environments sharing the host OS kernel. They run faster and consume fewer resources than VMs.
+
+**Containerization** is a lightweight alternative to virtualization that allows applications to run in isolated environments called **containers**. Unlike Virtual Machines, containers do not require a full operating system. Instead, they share the **host system’s OS kernel**, which makes them significantly faster and more efficient.
+
+A **container** packages everything needed to run an application — including the code, runtime, libraries, and configuration — into a single, portable unit. This ensures that the application behaves consistently across development, testing, and production environments.
 
 ###  Advantages:
 
