@@ -3,7 +3,6 @@
 
 Before diving into Docker, it's essential to understand how software architecture and infrastructure evolved — from **Monolithic** applications to **Microservices**, then **Virtualization**, and finally **Containerization**. Each step in this journey reduced complexity, improved scalability, and — importantly — optimized **cost**.
 
----
 
 ##  Monolithic/Enterprise Applications
 
@@ -34,7 +33,6 @@ In early software systems, applications were built as **monoliths** — large, t
 
 <img src="https://github.com/user-attachments/assets/bdb13f01-f651-42bd-8779-40a9c1c259ea" alt="Image" width="400" height="300" />
 
----
 
 ## 🧩 Microservices Architecture
 
@@ -63,8 +61,6 @@ Diagram representation of how microservices work for the Uber application.
 
 <img src="https://github.com/user-attachments/assets/a13db589-6f55-497b-a1a6-069f88ccbef2" alt="Image" width="400" />
 
-
----
 
 ##  Virtualization
 
@@ -96,7 +92,6 @@ VMware, VirtualBox, Hyper-V.
 
 👉 To solve this, we evolved to **containerization**.
 
----
 
 ##  Containerization
 
@@ -127,9 +122,6 @@ Docker, Podman, Kubernetes (for orchestration).
 
 <img src="https://github.com/user-attachments/assets/803ff482-8c12-4519-b654-ac8882ee484c" alt="Image" width="400" height="300" />
 
-
----
-
 ## 🐳 Why Docker?
 
 Docker made containerization **mainstream** by simplifying how developers package and deploy applications. It offered:
@@ -145,7 +137,6 @@ Docker made containerization **mainstream** by simplifying how developers packag
 * Decreased **development-to-deployment time**, saving engineering effort.
 * Compatible with **auto-scaling**, further cutting unnecessary cloud expenses.
 
----
 
 ## 🔄 Evolution Flow Summary
 
