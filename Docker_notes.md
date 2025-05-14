@@ -63,7 +63,7 @@ A single e-commerce web application can be divided into individual services such
 
 Diagram representation of how microservices work for the Uber application.
 
-<img src="https://github.com/user-attachments/assets/bfa6ccc9-1dec-47f4-a647-d592a54ddffe" alt="Image" width="400" />
+<img src="https://github.com/user-attachments/assets/a13db589-6f55-497b-a1a6-069f88ccbef2" alt="Image" width="400" />
 
 
 ---
