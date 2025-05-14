@@ -58,6 +58,7 @@ A single e-commerce web application can be divided into individual services such
 * Still requires **separate environments** for each service, increasing hosting cost unless optimized.
 
 👉 While microservices offered better flexibility and modularity, they also introduced a need to manage multiple runtime environments — which led to **virtualization**.
+
 ---
 
 ## 💻 Virtualization
