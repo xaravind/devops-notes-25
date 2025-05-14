@@ -131,6 +131,9 @@ Docker, Podman, Kubernetes (for orchestration).
 * Ideal for **pay-as-you-go cloud models** (e.g., AWS, Azure).
 * Faster deployments reduce **downtime costs**.
 
+<img src="https://github.com/user-attachments/assets/ee043a82-3eab-4f55-aac8-ad9d87923961" alt="Image" width="400" height="300" />
+
+
 ---
 
 ## 🐳 Why Docker?
