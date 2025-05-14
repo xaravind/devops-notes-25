@@ -34,6 +34,10 @@ In early software systems, applications were built as **monoliths** — large, t
 
 👉 These pain points led to the shift toward **microservices**.
 
+
+![Image](https://github.com/user-attachments/assets/ff3b3435-e800-40f1-9841-2d9b824caba7)
+
+
 ---
 
 ## 🧩 Microservices Architecture
@@ -58,6 +62,10 @@ A single e-commerce web application can be divided into individual services such
 * Still requires **separate environments** for each service, increasing hosting cost unless optimized.
 
 👉 While microservices offered better flexibility and modularity, they also introduced a need to manage multiple runtime environments — which led to **virtualization**.
+
+Diagram representation of how microservices work for the Uber application.
+
+![Image](https://github.com/user-attachments/assets/bfa6ccc9-1dec-47f4-a647-d592a54ddffe)
 
 ---
 
