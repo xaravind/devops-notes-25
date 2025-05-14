@@ -104,6 +104,8 @@ A **container** is a lightweight, portable package that includes an application 
 * Suitable for **microservices**, **DevOps**, and **CI/CD pipelines**.
 * Highly **portable** across different environments (development, testing, production).
 
+###  Tools:
+Docker, Podman, Kubernetes (for orchestration).
 
 ### Example:
 
@@ -117,34 +119,6 @@ Instead of running each service in a separate virtual machine, you can run each 
 * More **efficient resource usage**, allowing more containers on fewer machines.
 * Reduced **cloud infrastructure costs**, especially in **pay-as-you-go** models (e.g., AWS, Azure).
 * **Faster deployments** reduce downtime and improve time-to-market.
-
-
-##  Containerization
-
-Containerization runs applications in isolated environments called **containers**, but unlike VMs, containers share the host system’s **OS kernel**. This makes them much more lightweight and efficient.
-
-### 🔧 Characteristics:
-
-* Containers use fewer resources compared to VMs.
-* They start quickly and scale rapidly.
-* Ideal for modern cloud-native and microservice-based applications.
-* Highly portable across different environments (local, staging, production).
-
-###  Example:
-Instead of running user, catalog, cart, shipping, and payment services in separate VMs, you can run each service in its own container. These containers share the same OS kernel but are completely isolated from one another, making deployments faster, lighter, and more efficient.
-
-
-###  Tools:
-
-Docker, Podman, Kubernetes (for orchestration).
-
-###  Cost Impact:
-
-* **Significantly lower costs** compared to VMs.
-* **Efficient resource usage** — more services on fewer machines.
-* Lower **cloud infrastructure bills**.
-* Ideal for **pay-as-you-go cloud models** (e.g., AWS, Azure).
-* Faster deployments reduce **downtime costs**.
 
 <img src="https://github.com/user-attachments/assets/803ff482-8c12-4519-b654-ac8882ee484c" alt="Image" width="400" height="300" />
 
