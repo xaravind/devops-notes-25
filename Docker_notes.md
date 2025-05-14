@@ -7,7 +7,7 @@ Before diving into Docker, it's essential to understand how software architectur
 
 ---
 
-## 🧱 Monolithic/Enterprise Applications
+##  Monolithic/Enterprise Applications
 
 In early software systems, applications were built as **monoliths** — large, tightly coupled systems where all components are bundled and deployed together.
 
@@ -25,7 +25,7 @@ In early software systems, applications were built as **monoliths** — large, t
 * Applications take more time to **boot up** due to size.
 * Scaling or updating specific parts independently is difficult.
 
-### 💰 Cost Impact:
+###  Cost Impact:
 
 * **High operational costs** due to large server needs.
 * **Expensive downtime** during updates or crashes.
@@ -42,17 +42,17 @@ In early software systems, applications were built as **monoliths** — large, t
 
 Microservices architecture breaks down an application into **smaller, independent services**, each handling a specific business function. These services communicate with each other via **APIs** and can be built and deployed independently.
 
-### 🔧 Characteristics:
+###  Characteristics:
 
 * Independent services with separate codebases.
 * Easier to update or scale individual components.
 * Improved fault isolation — failure in one service doesn't crash the entire system.
 
-### 📦 Example:
+###  Example:
 
 A single e-commerce web application can be divided into individual services such as user, catalog, cart, shipping, and payment. Each of these services operates independently and can be developed, deployed, or scaled without affecting the others.
 
-### 💰 Cost Impact:
+###  Cost Impact:
 
 * **Lower maintenance costs** due to modularity.
 * **Smaller teams** can manage services independently.
@@ -68,7 +68,7 @@ Diagram representation of how microservices work for the Uber application.
 
 ---
 
-## 💻 Virtualization
+##  Virtualization
 
 Virtualization introduced a way to run multiple services on a single physical machine by creating **virtual machines (VMs)** using a hypervisor. The hypervisor partitions physical resources like CPU, RAM, storage, and network, and allocates them to VMs.
 
@@ -78,18 +78,18 @@ Virtualization introduced a way to run multiple services on a single physical ma
 * Applications are deployed on top of these VMs.
 * VMs are isolated from each other and from the host machine.
 
-### 🖥️ Examples:
+###  Examples:
 
 VMware, VirtualBox, Hyper-V.
 
-### ❌ Disadvantages:
+###  Disadvantages:
 
 * VMs consume more physical resources than required.
 * Running too many VMs can slow down the host server.
 * Each VM carries an OS overhead, making them heavyweight.
 * Slower startup times and reduced efficiency compared to lightweight alternatives.
 
-### 💰 Cost Impact:
+###  Cost Impact:
 
 * **Better than monolithic**, but still **inefficient** — each VM requires full OS resources.
 * High **infrastructure cost** for large-scale deployments.
@@ -100,7 +100,7 @@ VMware, VirtualBox, Hyper-V.
 
 ---
 
-## 📦 Containerization
+##  Containerization
 
 Containerization runs applications in isolated environments called **containers**, but unlike VMs, containers share the host system’s **OS kernel**. This makes them much more lightweight and efficient.
 
@@ -111,16 +111,15 @@ Containerization runs applications in isolated environments called **containers*
 * Ideal for modern cloud-native and microservice-based applications.
 * Highly portable across different environments (local, staging, production).
 
-### 📦 Example:
-
+###  Example:
 Instead of running user, catalog, cart, shipping, and payment services in separate VMs, you can run each service in its own container. These containers share the same OS kernel but are completely isolated from one another, making deployments faster, lighter, and more efficient.
 
 
-### 🧰 Tools:
+###  Tools:
 
 Docker, Podman, Kubernetes (for orchestration).
 
-### 💰 Cost Impact:
+###  Cost Impact:
 
 * **Significantly lower costs** compared to VMs.
 * **Efficient resource usage** — more services on fewer machines.
@@ -142,7 +141,7 @@ Docker made containerization **mainstream** by simplifying how developers packag
 * Lightweight and fast performance.
 * Seamless DevOps integration and CI/CD compatibility.
 
-### 💰 Cost Advantage with Docker:
+###  Cost Advantage with Docker:
 
 * Reduced **infrastructure costs** via lightweight containers.
 * Decreased **development-to-deployment time**, saving engineering effort.
