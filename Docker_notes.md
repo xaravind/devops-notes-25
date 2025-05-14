@@ -124,7 +124,27 @@ Instead of running each service in a separate virtual machine, you can run each 
 
 <img src="https://github.com/user-attachments/assets/803ff482-8c12-4519-b654-ac8882ee484c" alt="Image" width="400" height="300" />
 
-## 🐳 Why Docker?
+## 🐳 Docker
+
+**What is Docker?**
+
+Docker is an open-source platform and a set of **PaaS (Platform as a Service)** tools that use **OS-level virtualization** to run applications inside **containers**. A **Docker container** is created from a **Docker image**, which is a lightweight, executable package that contains everything required to run an application — including the **code**, **runtime**, **libraries**, and **configuration files**.
+
+Containers are isolated from one another but can communicate through well-defined channels. Since they share the same **host OS kernel**, they are more **resource-efficient** compared to virtual machines. Docker images are **OS-independent**, **reusable**, and **version-controlled**, making them ideal for ensuring **consistent application behavior** across different environments.
+
+**What is Docker Architecture?**
+
+Docker uses a **client-server architecture**. The **Docker client** sends commands to the **Docker daemon** via an API. The Docker daemon builds, runs, and manages containers. The daemon runs on the **Docker host**, where containers are actually executed. Docker images are stored in **registries** like **Docker Hub** and are used to create containers.
+
+For example, when you run a command like `docker run <image-name>`, the Docker client sends a request to the daemon. The daemon then checks if the image is available locally. If it isn't, the daemon pulls the image from the Docker registry and creates a container from it on the Docker host.
+
+**What is Client-Server Architecture?**
+
+**Client-server architecture** is a computing model where the **client** sends requests, and the **server** processes and responds to those requests. In Docker's case, the **client** (either the **CLI** or **API**) interacts with the **Docker daemon** (the server), which handles all container operations. This separation of responsibilities ensures **modularity**, **scalability**, and **centralized control** over the container lifecycle.
+
+
+
+##  Why Docker?
 
 Docker made containerization **mainstream** by simplifying how developers package and deploy applications. It offered:
 
