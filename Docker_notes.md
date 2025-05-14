@@ -138,17 +138,17 @@ Docker made containerization **mainstream** by simplifying how developers packag
 * Compatible with **auto-scaling**, further cutting unnecessary cloud expenses.
 
 
-## 🔄 Evolution Flow Summary
+##  Evolution Flow Summary
 
 ```text
 Monolithic → Microservices → Virtualization → Containerization → Docker
 ```
 
-* 🧱 **Monolithic**: tightly coupled, slow, hard to scale.
-* 🧩 **Microservices**: modular, scalable, but operationally complex.
-* 💻 **Virtualization**: isolated environments, but resource-heavy.
-* 📦 **Containerization**: lightweight, fast, efficient.
-* 🐳 **Docker**: streamlined and popularized containerization.
+*  **Monolithic**: tightly coupled, slow, hard to scale.
+*  **Microservices**: modular, scalable, but operationally complex.
+*  **Virtualization**: isolated environments, but resource-heavy.
+*  **Containerization**: lightweight, fast, efficient.
+*  **Docker**: streamlined and popularized containerization.
 
 ---
 
