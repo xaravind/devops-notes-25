@@ -62,35 +62,61 @@ Diagram representation of how microservices work for the Uber application.
 <img src="https://github.com/user-attachments/assets/a13db589-6f55-497b-a1a6-069f88ccbef2" alt="Image" width="400" />
 
 
-##  Virtualization
+## Virtualization
 
-Virtualization introduced a way to run multiple services on a single physical machine by creating **virtual machines (VMs)** using a hypervisor. The hypervisor partitions physical resources like CPU, RAM, storage, and network, and allocates them to VMs.
+**Virtualization** allows multiple services or applications to run on a single physical server by creating **Virtual Machines (VMs)** using a **hypervisor** (such as VMware, VirtualBox, or Hyper-V). The hypervisor splits the server’s physical resources — CPU, memory, storage, and network — and allocates them to each VM.
 
-###  Characteristics:
+A **Virtual Machine** is a software-based system that acts like a real computer. Each VM runs independently and has its own operating system, memory, CPU, and storage. This isolation ensures that one VM's issues do not affect others, making it safe to run different applications or operating systems on the same physical server.
 
-* Each VM has its **own full operating system**.
-* Applications are deployed on top of these VMs.
-* VMs are isolated from each other and from the host machine.
+### Characteristics:
 
-###  Examples:
+* Each VM includes its own full operating system.
+* Applications are deployed inside these VMs.
+* VMs are isolated from one another and from the host machine.
+* Enables running multiple workloads on a single server.
 
-VMware, VirtualBox, Hyper-V.
+### Disadvantages:
 
-###  Disadvantages:
+* VMs consume more physical resources than necessary.
+* Each VM carries the overhead of a full operating system, making it relatively heavy.
+* Startup times are slower compared to lightweight alternatives.
+* Running too many VMs can degrade the performance of the host server.
 
-* VMs consume more physical resources than required.
-* Running too many VMs can slow down the host server.
-* Each VM carries an OS overhead, making them heavyweight.
-* Slower startup times and reduced efficiency compared to lightweight alternatives.
+### Cost Impact:
 
-###  Cost Impact:
+* More efficient than monolithic deployments but still resource-intensive.
+* Higher infrastructure and software licensing costs, especially for enterprise-grade hypervisors.
+* Overprovisioning leads to underutilized resources and increased costs.
 
-* **Better than monolithic**, but still **inefficient** — each VM requires full OS resources.
-* High **infrastructure cost** for large-scale deployments.
-* Higher **licensing costs** for virtualization tools (e.g., VMware).
-* **Overprovisioning** leads to wasted resources and cost.
 
 👉 To solve this, we evolved to **containerization**.
+
+## Containerization
+
+In containerization, we use tools like **Docker** to package an application along with its dependencies, such as libraries and configuration files, into a single unit called a container. Unlike virtual machines, containers **share the host operating system’s kernel**, which makes them **lightweight**, **fast**, and more **resource-efficient**.
+
+A **container** is a lightweight, portable package that includes an application and everything it needs to run — like code, libraries, and settings. Unlike virtual machines, containers share the host operating system’s kernel, which makes them faster and use fewer resources. They run in isolated environments, so multiple containers can run on the same system without interfering with each other. Containers are great for microservices and are commonly used in DevOps and cloud-native applications.
+
+### Characteristics:
+
+* Containers use **fewer system resources** compared to VMs.
+* They **start quickly** and are easy to scale.
+* Suitable for **microservices**, **DevOps**, and **CI/CD pipelines**.
+* Highly **portable** across different environments (development, testing, production).
+
+
+### Example:
+
+Suppose you are building an application like **Uber** with services such as user management, ride booking, payments, and notifications.
+
+Instead of running each service in a separate virtual machine, you can run each service in its own **container**. All containers share the same OS kernel but remain **isolated** from each other, resulting in **faster**, **lighter**, and **more efficient** deployments.
+
+### Cost Impact:
+
+* **Lower costs** compared to virtual machines.
+* More **efficient resource usage**, allowing more containers on fewer machines.
+* Reduced **cloud infrastructure costs**, especially in **pay-as-you-go** models (e.g., AWS, Azure).
+* **Faster deployments** reduce downtime and improve time-to-market.
 
 
 ##  Containerization
