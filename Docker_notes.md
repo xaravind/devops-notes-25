@@ -46,7 +46,9 @@ Microservices architecture breaks down an application into **smaller, independen
 
 ###  Example:
 
-A single e-commerce web application can be divided into individual services such as user, catalog, cart, shipping, and payment. Each of these services operates independently and can be developed, deployed, or scaled without affecting the others.
+A single uber web application can be divided into individual services such as passanger management, billing , payments etc.., Each of these services operates independently and can be developed, deployed, or scaled without affecting the others.
+
+<img src="https://github.com/user-attachments/assets/a13db589-6f55-497b-a1a6-069f88ccbef2" alt="Image" width="400" />
 
 ###  Cost Impact:
 
@@ -57,9 +59,9 @@ A single e-commerce web application can be divided into individual services such
 
 👉 While microservices offered better flexibility and modularity, they also introduced a need to manage multiple runtime environments — which led to **virtualization**.
 
-Diagram representation of how microservices work for the Uber application.
 
-<img src="https://github.com/user-attachments/assets/a13db589-6f55-497b-a1a6-069f88ccbef2" alt="Image" width="400" />
+
+
 
 
 ## Virtualization
