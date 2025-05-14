@@ -34,7 +34,7 @@ In early software systems, applications were built as **monoliths** — large, t
 
 👉 These pain points led to the shift toward **microservices**.
 
-<img src="https://github.com/user-attachments/assets/a0859322-07db-4875-8a08-d15c8f3a3e0c" alt="Image" width="400" height="300" />
+<img src="https://github.com/user-attachments/assets/bdb13f01-f651-42bd-8779-40a9c1c259ea" alt="Image" width="400" height="300" />
 
 ---
 
