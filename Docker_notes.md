@@ -29,7 +29,7 @@ In early software systems, applications were built as **monoliths** — large, t
 * **Inefficient use of resources** — you pay for more hardware than you use.
 * Scalability requires **more full-stack servers**, increasing cost linearly.
 
-👉 These pain points led to the shift toward **microservices**.
+> These pain points led to the shift toward **microservices**.
 
 <img src="https://github.com/user-attachments/assets/bdb13f01-f651-42bd-8779-40a9c1c259ea" alt="Image" width="400" height="300" />
 
@@ -59,7 +59,7 @@ Consider a ride-sharing platform like Uber. Instead of building one massive appl
 * Infrastructure becomes more complex, possibly requiring containerization or orchestration.
 * Initial setup may involve higher complexity and configuration overhead.
 
-👉 Microservices architecture supports scalable, resilient, and agile software systems. While it introduces new deployment and management challenges, it creates a strong foundation for leveraging containerization and cloud-native technologies.
+> Microservices architecture supports scalable, resilient, and agile software systems. While it introduces new deployment and management challenges, it creates a strong foundation for leveraging containerization and cloud-native technologies.
 
 ## Virtualization
 
@@ -87,7 +87,7 @@ A **Virtual Machine** is a software-based system that behaves like a real comput
 * Higher infrastructure and licensing costs, especially with commercial hypervisors.
 * Overprovisioning often leads to underutilized resources.
 
-👉 While virtualization was a major step forward in improving infrastructure utilization, it introduced new inefficiencies that became more apparent as application architectures shifted toward microservices. This paved the way for **containerization**, which offers similar isolation with significantly less overhead.
+> While virtualization was a major step forward in improving infrastructure utilization, it introduced new inefficiencies that became more apparent as application architectures shifted toward microservices. This paved the way for **containerization**, which offers similar isolation with significantly less overhead.
 
 
 ## Containerization
@@ -118,7 +118,7 @@ Common tools and platforms include **Docker**, **Podman**, and orchestration sys
 * Faster deployment and scaling reduce operational costs.
 * Well-suited for pay-as-you-go cloud pricing models (e.g., AWS, Azure).
 
-👉 Containerization revolutionized the way applications are deployed by offering the same isolation benefits of virtualization with a fraction of the overhead. This innovation laid the foundation for platforms like **Docker**, which made container adoption simple and widespread.
+> Containerization revolutionized the way applications are deployed by offering the same isolation benefits of virtualization with a fraction of the overhead. This innovation laid the foundation for platforms like **Docker**, which made container adoption simple and widespread.
 
 <img src="https://github.com/user-attachments/assets/803ff482-8c12-4519-b654-ac8882ee484c" alt="Image" width="400" height="300" />
 
