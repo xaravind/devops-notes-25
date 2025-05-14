@@ -34,10 +34,7 @@ In early software systems, applications were built as **monoliths** — large, t
 
 👉 These pain points led to the shift toward **microservices**.
 
-
-<img src="https://github.com/user-attachments/assets/ff3b3435-e800-40f1-9841-2d9b824caba7" alt="Image" width="400" height="300" />
-
-
+<img src="https://github.com/user-attachments/assets/a0859322-07db-4875-8a08-d15c8f3a3e0c" alt="Image" width="400" height="300" />
 
 ---
 
@@ -131,7 +128,7 @@ Docker, Podman, Kubernetes (for orchestration).
 * Ideal for **pay-as-you-go cloud models** (e.g., AWS, Azure).
 * Faster deployments reduce **downtime costs**.
 
-<img src="https://github.com/user-attachments/assets/ee043a82-3eab-4f55-aac8-ad9d87923961" alt="Image" width="400" height="300" />
+<img src="https://github.com/user-attachments/assets/803ff482-8c12-4519-b654-ac8882ee484c" alt="Image" width="400" height="300" />
 
 
 ---
