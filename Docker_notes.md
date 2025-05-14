@@ -6,7 +6,9 @@ Understanding Docker starts with understanding how software deployment evolved: 
 
 ##  Monolithic Applications
 
-Early applications were **monolithic** — large, unified codebases where every component was tightly integrated.
+Monolithic architecture refers to a traditional software development style where an entire application — including its user interface, business logic, and data access layers — is built and deployed as a single, tightly coupled unit.
+
+In early systems and many legacy enterprise applications, this was the standard approach. All components are part of the same codebase and run within the same process space, typically on a single server.
 
 ###  Characteristics:
 
@@ -119,6 +121,21 @@ In a microservices-based platform, instead of deploying each service in a VM, ea
 > Containerization enabled truly scalable, efficient, and agile software delivery.
 
 ---
+##  Evolution Summary
+
+```text
+Monolithic → Microservices → Virtualization → Containerization → Docker
+```
+
+| Stage            | Key Trait                  | Limitation                  |
+| ---------------- | -------------------------- | --------------------------- |
+| Monolithic       | Unified codebase           | Hard to scale, fragile      |
+| Microservices    | Modular services           | Complex to manage           |
+| Virtualization   | OS-level isolation         | Resource-intensive          |
+| Containerization | Lightweight, portable      | Needs orchestration         |
+| Docker           | Developer-friendly tooling | Requires container literacy |
+
+---
 
 ## 🐳 Docker: Simplifying Containers
 
@@ -167,21 +184,19 @@ Docker succeeded because it:
 
 ---
 
-##  Evolution Summary
+## Security Best Practices for Containers
 
-```text
-Monolithic → Microservices → Virtualization → Containerization → Docker
-```
+* Securing containers is essential for production readiness. Key practices include:
+* Use official images or those from trusted sources.
+* Run containers as non-root users to minimize privilege risks.
+* Minimize image size (e.g., use Alpine Linux) to reduce attack surface.
+* Scan images for vulnerabilities using tools like Trivy or Clair.
+* Limit container capabilities using --cap-drop and security profiles.
+* Regularly update images and Docker engine.
+* Isolate containers with custom networks and firewalls.
 
-| Stage            | Key Trait                  | Limitation                  |
-| ---------------- | -------------------------- | --------------------------- |
-| Monolithic       | Unified codebase           | Hard to scale, fragile      |
-| Microservices    | Modular services           | Complex to manage           |
-| Virtualization   | OS-level isolation         | Resource-intensive          |
-| Containerization | Lightweight, portable      | Needs orchestration         |
-| Docker           | Developer-friendly tooling | Requires container literacy |
+> Incorporating security early prevents threats and ensures safe deployments.
 
----
 
 ## Common Docker Commands
 
