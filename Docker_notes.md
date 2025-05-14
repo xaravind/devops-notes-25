@@ -118,9 +118,9 @@ Common tools and platforms include **Docker**, **Podman**, and orchestration sys
 * Faster deployment and scaling reduce operational costs.
 * Well-suited for pay-as-you-go cloud pricing models (e.g., AWS, Azure).
 
-> Containerization revolutionized the way applications are deployed by offering the same isolation benefits of virtualization with a fraction of the overhead. This innovation laid the foundation for platforms like **Docker**, which made container adoption simple and widespread.
-
 <img src="https://github.com/user-attachments/assets/803ff482-8c12-4519-b654-ac8882ee484c" alt="Image" width="400" height="300" />
+
+> Containerization revolutionized the way applications are deployed by offering the same isolation benefits of virtualization with a fraction of the overhead. This innovation laid the foundation for platforms like **Docker**, which made container adoption simple and widespread.
 
 ## 🐳 Docker
 
