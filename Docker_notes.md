@@ -27,6 +27,8 @@ Early applications were **monolithic** — large, unified codebases where every 
 
 > These challenges led to the **Microservices** revolution.
 
+<img src="https://github.com/user-attachments/assets/bdb13f01-f651-42bd-8779-40a9c1c259ea" alt="Image" width="400" height="300" />
+
 ---
 
 ##  Microservices Architecture
@@ -42,6 +44,8 @@ Early applications were **monolithic** — large, unified codebases where every 
 ###  Example:
 
 A ride-sharing app may split services like user auth, ride booking, payments, and notifications. Each can scale independently, improving agility and uptime.
+
+<img src="https://github.com/user-attachments/assets/a13db589-6f55-497b-a1a6-069f88ccbef2" alt="Image" width="400" />
 
 ###  Cost Consideration:
 
@@ -72,6 +76,8 @@ A ride-sharing app may split services like user auth, ride booking, payments, an
 
 * Better than monoliths but still resource-heavy.
 * Commercial hypervisors and licensing increase costs.
+
+<img src="https://github.com/user-attachments/assets/803ff482-8c12-4519-b654-ac8882ee484c" alt="Image" width="400" height="300" />
 
 > Virtualization set the stage for the next leap: **Containers**.
 
