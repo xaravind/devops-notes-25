@@ -1,5 +1,5 @@
 
-#  From Monolithic to Docker: The Evolution of Application Deployment
+##  From Monolithic to Docker: The Evolution of Application Deployment
 
 Before diving into Docker, it's essential to understand how software architecture and infrastructure evolved — from **Monolithic** applications to **Microservices**, then **Virtualization**, and finally **Containerization**. Each step in this journey reduced complexity, improved scalability, and — importantly — optimized **cost**.
 
